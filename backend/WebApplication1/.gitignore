@@ -1,0 +1,38 @@
+﻿# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build Folders
+bin/
+obj/
+out/
+
+# Rider IDE
+.idea/
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+packages/
+# NuGet v3
+project.lock.json
+project.fragment.lock.json
+
+# Publish Output
+publish/
+
+# OS Files
+*.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Secrets / Configuration
+appsettings.Development.json
+secrets.json
