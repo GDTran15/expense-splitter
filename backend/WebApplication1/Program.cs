@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.IRepositories;
+using WebApplication1.Model;
+using WebApplication1.Repositories;
+
 namespace WebApplication1
 {
     public class Program
@@ -7,6 +12,9 @@ namespace WebApplication1
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -14,6 +22,7 @@ namespace WebApplication1
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
