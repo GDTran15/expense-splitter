@@ -13,5 +13,9 @@
         public int UserId { get; set; }
 
         public User User { get; set; }
+
+        public List<ShareRequest> ShareRequests { get; set; }
+
+        public List<Payment> Payments { get; set; }
     }
 }

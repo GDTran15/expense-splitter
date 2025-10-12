@@ -14,9 +14,17 @@
 
         public string Phone { get; set; }
 
+        public double AmountSpend { get; set; }
+
         public List<Friend> FriendList { get; set; }
         public List<GroupMember> GroupList { get; set; }
 
         public List<Expense> ExpenseList { get; set; }
+
+        public List<ShareRequestUser> ShareRequestRecieveList { get; set; }
+
+        public List<ShareRequest> ShareRequestsLists { get; set; }
+        public List<Payment> ReceivePayments { get; set; }
+        public List<Payment> SendPayments { get; set; }
     }
 }
