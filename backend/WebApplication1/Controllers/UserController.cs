@@ -1,43 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.DTO.User;
 using WebApplication1.Model;
+using WebApplication1.Service;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly UserService _userService;
 
-        public UserController(AppDbContext context)
+
+        public UserController(UserService userService)
         {
-            _context = context;
+            _userService = userService;
         }
 
-        [HttpGet("GetUser")]
-        public async Task<IActionResult> GetUser()
+      
+
+        [HttpPost("register")]
+        public async Task<IActionResult> RegisterUser([FromBody] RegisterRequestDTO requestDTO)// [fromRoute] when in path
         {
-            var result = await _context.Users.Select(x => new User
-            {
-                UserId = x.UserId,
-                Name = x.Name,
-                Username = x.Username,
-                Email = x.Email,
-                Password = x.Password,
-                Phone = x.Phone,
+            await _userService.CreateNewUser(requestDTO);
 
-            }).ToListAsync();
-
-            return Ok(result);
-        }
-
-        [HttpPost("CreateUser")]
-        public async Task<IActionResult> CreateUser([FromBody] User user)
-        {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();  
-            return Ok(user);
+            return Ok("User succesfully created");
         }
 
 
