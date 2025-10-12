@@ -6,9 +6,10 @@ namespace WebApplication1.IRepositories
     {
         Task<List<User>> GetAll();
         Task<User?> GetByIdAsync(int id);
-        Task<long> CreateAsync(User user);
+        Task CreateUserAsync(User user);
         Task<bool> UpdateAsync(User user);
         Task<bool> DeleteAsync(int id);
-        Task<bool> IsExistByIdAsync(int id);
+    
+        Task<bool> IsExistByUsernameOrEmailAsync(string username,string email);
     }
 }

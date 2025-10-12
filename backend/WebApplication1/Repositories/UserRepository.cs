@@ -16,11 +16,11 @@ namespace WebApplication1.Repositories
         }
         #endregion
 
-        public async Task<long> CreateAsync(User user)
+        public async Task CreateUserAsync(User user)
         {
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
-            return user.UserId;
+          
         }
 
         public Task<bool> DeleteAsync(int id)
@@ -34,19 +34,37 @@ namespace WebApplication1.Repositories
             return list;
         }
 
-        public async Task<User?> GetByIdAsync(int id)
+       
+        public async Task<User?> GetByNameAsync(string name)
         {
-            var user = await _context.Users.Where(u => u.UserId == id).FirstOrDefaultAsync();
+            var user = await _context.Users.Where(u => u.Name == name).FirstOrDefaultAsync();
+            return user;
+        }
+        public async Task<User?> GetByEmailAsync(string  email)
+        {
+            var user = await _context.Users.Where(u =>  u.Email == email).FirstOrDefaultAsync();
             return user;
         }
 
-        public async Task<bool> IsExistByIdAsync(int id)
+        public async Task<bool> IsExistByUsernameOrEmailAsync(string username, string email)
         {
-            var student = await GetByIdAsync(id);
-            return student is not null;
+            var usernameExist = await GetByNameAsync(username);
+            var emailExist = await GetByEmailAsync(email);
+            return usernameExist != null || emailExist != null;
+
         }
 
         public async Task<bool> UpdateAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<User?> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> IsExistByIdAsync(int id)
         {
             throw new NotImplementedException();
         }

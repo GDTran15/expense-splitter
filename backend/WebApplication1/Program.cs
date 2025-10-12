@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
 using WebApplication1.Repositories;
+using WebApplication1.Exceptions;
+using WebApplication1.Service;
 
 namespace WebApplication1
 {
@@ -23,8 +25,10 @@ namespace WebApplication1
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<UserService>();
+            builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
             var app = builder.Build();
-
+           
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -32,8 +36,10 @@ namespace WebApplication1
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+            app.UseExceptionHandler( _ => { });
 
+            app.UseHttpsRedirection();
+            
             app.UseAuthorization();
 
 
