@@ -68,5 +68,23 @@ namespace WebApplication1.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public async Task<User?> GetByUsernameAndPassWord(string username, string password)
+        {
+            var user = await _context.Users.Where(u => 
+            u.Username == username && u.Password == password).FirstOrDefaultAsync();
+
+            return user;
+        }
+
+        public async Task<User?> GetUserByUsername(string username)
+        {
+            var user = await _context.Users.Where(u =>
+                u.Username == username).FirstOrDefaultAsync();
+
+            return user;
+        }
+
+
     }
 }

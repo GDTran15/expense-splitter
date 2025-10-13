@@ -5,10 +5,10 @@ namespace WebApplication1.IRepositories
     public interface IUserRepository
     {
         Task<List<User>> GetAll();
-        Task<User?> GetByIdAsync(int id);
+        Task<User?> GetByUsernameAndPassWord(string username, string password);
         Task CreateUserAsync(User user);
-        Task<bool> UpdateAsync(User user);
-        Task<bool> DeleteAsync(int id);
+        
+        Task<User?> GetUserByUsername(string username); 
     
         Task<bool> IsExistByUsernameOrEmailAsync(string username,string email);
     }

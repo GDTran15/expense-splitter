@@ -5,13 +5,13 @@ import { useState } from "react";
 import FormComponent from "../Component/FormComponent";
 import InputComponent from "../Component/InputComponent";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function RegisterPage(){
-    const [name,setName] = useState("");
-    const [gmail,setGmail] = useState("");
+export default function LoginPage(){
+    const navigate = useNavigate();
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
-    const [phone,setPhone] = useState("");
+   
     const [error,setError] = useState("");
     
 
@@ -20,15 +20,15 @@ export default function RegisterPage(){
         e.preventDefault();
         setError("");
         try{
-        const res = await axios.post("https://localhost:7179/api/user/register",{
-             Name: name,
+        const res = await axios.post("https://localhost:7179/api/user/login",{
+           
                 Username: username,
                 Password: password,
-                Email: gmail,   
-                Phone: phone
+             
         });
-     setName(""); setUsername(""); setPassword(""); setGmail(""); setPhone("");
-        console.log(res);
+        localStorage.setItem("userId",res.data.userId);
+        localStorage.setItem("username",res.data.username);
+        navigate("/home");
     } catch (error){
         setError(error.response.data)
     }
@@ -41,28 +41,12 @@ export default function RegisterPage(){
      
  
     <FormComponent 
-       title="Create Your Account" 
+       title="Login" 
        subTitle="Join splitter community"
-       optional="Already have an account? Sign in"
-       linkTo="/login"
+       optional="Create an account"
        >
          <form onSubmit={handleSubmit} >
-              
-            <InputComponent 
-            labelText="Name"
-            changeHandle={(e) => setName(e.target.value)}
-            inputType="text"
-            inputValue={name}
-            placeholderValue="Enter your name"
-            />
             
-            <InputComponent 
-            labelText="Gmail"
-            changeHandle={(e) => setGmail(e.target.value)}
-            inputType="email"
-            value={gmail}
-            placeholderValue="Enter your gmail"
-            />
             <InputComponent 
             labelText="Username"
             changeHandle={(e) => setUsername(e.target.value)}
@@ -77,14 +61,7 @@ export default function RegisterPage(){
             value={password}
             placeholderValue="Enter your password"
             />
-            <InputComponent 
-            labelText="Phone"
-            changeHandle={(e) => setPhone(e.target.value)}
-            inputType="text"
-            inputValue={phone}
-            placeholderValue="Enter your phone number"
-            />
-            <button type="submit" className="btn btn-warning w-100 mt-2">Register</button>
+            <button type="submit" className="btn btn-warning w-100 mt-2">Login</button>
                     </form>
                     <p className="text-danger mt-3">{error !== "" ?  `*${error}` : ""}</p>
         </FormComponent>    

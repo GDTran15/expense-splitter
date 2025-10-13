@@ -28,6 +28,12 @@ namespace WebApplication1.Controllers
             return Ok("User succesfully created");
         }
 
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDTORequest loginDTO)
+        {
+            var res = await _userService.login(loginDTO);
+            return Ok(res);
+        }
 
     }
 }

@@ -33,5 +33,20 @@ namespace WebApplication1.Service
             };
             await _userRepository.CreateUserAsync(newUser);
         }
+
+        internal async Task<ResponseLoginDTO> login(LoginDTORequest loginDTO)
+        {
+            var user = await _userRepository.GetByUsernameAndPassWord(loginDTO.Username, loginDTO.Password);
+            if (user == null)
+            {
+                throw new InvalidOperationException("Wrong username or password");
+            }
+
+            return new ResponseLoginDTO
+            {
+                UserId = user.UserId,
+                UserName = user.Username
+            };
+            }
+        }
     }
-}

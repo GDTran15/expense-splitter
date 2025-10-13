@@ -1,5 +1,5 @@
-
-export default function FormComponent({title,subTitle,optional,children}){
+import { Link } from "react-router-dom"
+export default function FormComponent({title,subTitle,optional,children,linkTo}){
     return(
         <>
         <div className="d-flex justify-content-center align-items-center vh-100"> 
@@ -13,7 +13,7 @@ export default function FormComponent({title,subTitle,optional,children}){
                         <h6 className="card-subtitle mb-2 text-center text-body-tertiary mb-4" >{subTitle}</h6>
                         {children}
                     <div className="text-center my-4">
-                      <a href="" className="link-signin">{optional}</a>
+                      <Link to={linkTo}>{optional}</Link>
                     </div>
                     </div>
                    </div>    
