@@ -27,6 +27,20 @@ namespace WebApplication1
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<UserService>();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowViteDev",
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:5173")
+                              .AllowAnyHeader()
+                              .AllowAnyMethod();
+                              
+                    });
+            });
+
+
             var app = builder.Build();
            
             // Configure the HTTP request pipeline.
@@ -35,14 +49,14 @@ namespace WebApplication1
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors("AllowViteDev");
             app.UseExceptionHandler( _ => { });
 
-            app.UseHttpsRedirection();
+           // app.UseHttpsRedirection();
             
             app.UseAuthorization();
 
-
+            
             app.MapControllers();
 
             app.Run();
