@@ -26,6 +26,9 @@ namespace WebApplication1
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<UserService>();
+            builder.Services.AddScoped<IGroupRepository, GroupRepository>();
+            builder.Services.AddScoped<IGroupMemberRepository, GroupMemberRepository>();
+            builder.Services.AddScoped<GroupService>();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
             builder.Services.AddCors(options =>
