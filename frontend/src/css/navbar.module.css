@@ -1,0 +1,9 @@
+.navbarBorder {
+  border-bottom: 3px solid rgb(91, 74, 247);
+}
+
+.navtabActive{
+  color: rgb(91, 74, 247);
+  border-bottom: 2px solid rgb(91, 74, 247);
+  font-weight: 600;
+}
