@@ -2,7 +2,7 @@
 import { Nav,Container,Row,Button } from 'react-bootstrap';
 import style from '../css/navbar.module.css';
 
-export default function NavBarComponent({activeTab}){
+export default function NavBarComponent(){
     return (
         <>
        

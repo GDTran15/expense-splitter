@@ -20,7 +20,7 @@ export default function RegisterPage(){
         e.preventDefault();
         setError("");
         try{
-        const res = await axios.post("https://localhost:7179/api/user/register",{
+        const res = await axios.post("https://localhost:7179/user/register",{
              Name: name,
                 Username: username,
                 Password: password,
@@ -28,7 +28,7 @@ export default function RegisterPage(){
                 Phone: phone
         });
      setName(""); setUsername(""); setPassword(""); setGmail(""); setPhone("");
-        console.log(res);
+        alert(res.data);
     } catch (error){
         setError(error.response.data)
     }

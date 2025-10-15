@@ -20,14 +20,15 @@ export default function LoginPage(){
         e.preventDefault();
         setError("");
         try{
-        const res = await axios.post("https://localhost:7179/api/user/login",{
+        const res = await axios.post("https://localhost:7179/user/login",{
            
                 Username: username,
                 Password: password,
              
         });
-        localStorage.setItem("userId",res.data.userId);
-        localStorage.setItem("username",res.data.username);
+        localStorage.setItem("user",JSON.stringify(res.data));
+        console.log(res.data)
+        
         navigate("/home");
     } catch (error){
         setError(error.response.data)
