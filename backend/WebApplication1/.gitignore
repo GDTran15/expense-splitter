@@ -1,14 +1,17 @@
 ﻿# Visual Studio
 .vs/
+.vscode/
+.idea/
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
 # Build Folders
-bin/
-obj/
-out/
+**/bin/
+**/obj/
+**/out/
+**/publish/
 
 # Rider IDE
 .idea/
@@ -34,5 +37,9 @@ Thumbs.db
 *.log
 
 # Secrets / Configuration
-appsettings.Development.json
+**/appsettings.json
+**/appsettings.Development.json
 secrets.json
+
+# keep shareable example configs
+!**/appsettings.example.json
