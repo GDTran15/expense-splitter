@@ -3,32 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Controllers\\ExpenseController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Controllers\\ExpenseController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Controllers\\UserController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Controllers\\UserController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Service\\UserService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Service\\UserService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\User\\LoginDTORequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\DTO\\User\\LoginDTORequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\IRepositories\\IExpenseRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\IRepositories\\IExpenseRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Service\\ExpenseService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Service\\ExpenseService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Repositories\\ExpenseRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Repositories\\ExpenseRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\Expense\\ExpenseRequestDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\DTO\\Expense\\ExpenseRequestDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\Expense\\ExpenseResponseDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\DTO\\Expense\\ExpenseResponseDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Model\\Expense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Model\\Expense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Repositories\\UserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Repositories\\UserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\IRepositories\\IUserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\IRepositories\\IUserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Exceptions\\GlobalExceptionHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Exceptions\\GlobalExceptionHandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Repositories\\UserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Repositories\\UserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Enums\\RequestStatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\Enums\\RequestStatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\User\\LoginDTORequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\DTO\\User\\LoginDTORequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\User\\ResponseLoginDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\DTO\\User\\ResponseLoginDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,101 +62,197 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\.gitignore",
-              "RelativeDocumentMoniker": "WebApplication1\\.gitignore",
-              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\.gitignore",
-              "RelativeToolTip": "WebApplication1\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-15T10:02:03.774Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Expense.cs",
-              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Model\\Expense.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Model\\Expense.cs",
-              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Model\\Expense.cs",
-              "RelativeToolTip": "WebApplication1\\Model\\Expense.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T09:59:01.997Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "WebApplication1\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T09:58:40.947Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\IRepositories\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\IRepositories\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\IRepositories\\IUserRepository.cs",
-              "RelativeToolTip": "WebApplication1\\IRepositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T09:58:29.06Z",
-              "EditorCaption": ""
-            },
+            }
+          ]
+        },
+        {
+          "DockedWidth": 202,
+          "SelectedChildIndex": 3,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "GlobalExceptionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Exceptions\\GlobalExceptionHandler.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Exceptions\\GlobalExceptionHandler.cs",
-              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Exceptions\\GlobalExceptionHandler.cs",
-              "RelativeToolTip": "WebApplication1\\Exceptions\\GlobalExceptionHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "IExpenseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\IRepositories\\IExpenseRepository.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\IRepositories\\IExpenseRepository.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\IRepositories\\IExpenseRepository.cs",
+              "RelativeToolTip": "WebApplication1\\IRepositories\\IExpenseRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T09:57:19.212Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RequestStatus.cs",
-              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Enums\\RequestStatus.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Enums\\RequestStatus.cs",
-              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Enums\\RequestStatus.cs",
-              "RelativeToolTip": "WebApplication1\\Enums\\RequestStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T09:57:05.44Z",
+              "WhenOpened": "2025-10-15T10:18:59.299Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "ExpenseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Repositories\\ExpenseRepository.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Repositories\\ExpenseRepository.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Repositories\\ExpenseRepository.cs",
+              "RelativeToolTip": "WebApplication1\\Repositories\\ExpenseRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T10:25:15.673Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ExpenseService.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Service\\ExpenseService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Service\\ExpenseService.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Service\\ExpenseService.cs",
+              "RelativeToolTip": "WebApplication1\\Service\\ExpenseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T11:17:21.629Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ExpenseController.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Controllers\\ExpenseController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ExpenseController.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Controllers\\ExpenseController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\ExpenseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T11:38:51.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "LoginDTORequest.cs",
               "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\User\\LoginDTORequest.cs",
               "RelativeDocumentMoniker": "WebApplication1\\DTO\\User\\LoginDTORequest.cs",
               "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\User\\LoginDTORequest.cs",
               "RelativeToolTip": "WebApplication1\\DTO\\User\\LoginDTORequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T11:39:02.852Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 198,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Expense.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Model\\Expense.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Model\\Expense.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Model\\Expense.cs",
+              "RelativeToolTip": "WebApplication1\\Model\\Expense.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T09:59:01.997Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ExpenseResponseDTO.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\Expense\\ExpenseResponseDTO.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\DTO\\Expense\\ExpenseResponseDTO.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\Expense\\ExpenseResponseDTO.cs",
+              "RelativeToolTip": "WebApplication1\\DTO\\Expense\\ExpenseResponseDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T09:56:46.344Z",
+              "WhenOpened": "2025-10-15T11:27:12.073Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ExpenseRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\Expense\\ExpenseRequestDTO.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\DTO\\Expense\\ExpenseRequestDTO.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\Expense\\ExpenseRequestDTO.cs",
+              "RelativeToolTip": "WebApplication1\\DTO\\Expense\\ExpenseRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T11:27:11.555Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Controllers\\UserController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T11:51:50.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Service\\UserService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Service\\UserService.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Service\\UserService.cs",
+              "RelativeToolTip": "WebApplication1\\Service\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T11:17:06.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "WebApplication1\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T10:25:03.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\IRepositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\IRepositories\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\IRepositories\\IUserRepository.cs",
+              "RelativeToolTip": "WebApplication1\\IRepositories\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T10:18:47.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ResponseLoginDTO.cs",
+              "DocumentMoniker": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\User\\ResponseLoginDTO.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\DTO\\User\\ResponseLoginDTO.cs",
+              "ToolTip": "C:\\Users\\braed\\OneDrive\\Documents\\ADS.net\\expense-splitter\\backend\\WebApplication1\\DTO\\User\\ResponseLoginDTO.cs",
+              "RelativeToolTip": "WebApplication1\\DTO\\User\\ResponseLoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T10:13:50.173Z",
               "EditorCaption": ""
             }
           ]
