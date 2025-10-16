@@ -1,0 +1,29 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace WebApplication1.Migrations
+{
+    /// <inheritdoc />
+    public partial class UpdateUser : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.AddColumn<double>(
+                name: "AmountEarn",
+                table: "Users",
+                type: "double precision",
+                nullable: false,
+                defaultValue: 0.0);
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "AmountEarn",
+                table: "Users");
+        }
+    }
+}
