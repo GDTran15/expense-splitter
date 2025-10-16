@@ -36,7 +36,6 @@ namespace WebApplication1.Repositories
 
         public async Task<Expense?> GetByIdAsync(int id)
         {
-            //var foundId = await _context.Expenses.Where(e => e.ExpenseId == id).AsNoTracking().FirstOrDefaultAsync();
             var foundId = await _context.Expenses.AsNoTracking().FirstOrDefaultAsync(e => e.ExpenseId == id); 
             return foundId;
         }

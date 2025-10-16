@@ -18,19 +18,19 @@ namespace WebApplication1.Controllers
         }
 
         ////create
-        //[HttpPost("")]
-        //public async Task<IActionResult> Create([FromBody] ExpenseRequestDTO requestDTO)
-        //{
-        //    var saved = await _expenseService.CreateNewExpense(requestDTO);
+        [HttpPost("create")]
+        public async Task<IActionResult> Create([FromBody] ExpenseRequestDTO requestDTO)
+        {
+            await _expenseService.CreateNewExpense(requestDTO);
 
-        //    return Ok("Expense created successfully");
-        //}
+            return Ok("Expense created successfully");
+        }
 
         ////add a get one
         //here
 
         //delete
-        [HttpPost("")]
+        [HttpPost("delete")]
         public async Task<IActionResult> Delete(int id)
         {
             var deleted = await _expenseService.DeleteExpense(id);

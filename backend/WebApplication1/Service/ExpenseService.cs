@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using System;
 using WebApplication1.DTO.User;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
@@ -14,28 +15,31 @@ namespace WebApplication1.Service
             _expenseRepository = expenseRepository;
         }
 
-        //internal async Task CreateNewExpense(ExpenseRequestDTO requestDTO)
-        //{
-        //    //var expenseExist = await expenseRepository.IsExistBy //not in irepository can add later
+        internal async Task CreateNewExpense(ExpenseRequestDTO requestDTO)
+        {
+            //var expenseExist = await expenseRepository.IsExistBy //not in irepository can add later
 
-        //    var newExpense = new ExpenseService
-        //    {
-        //        ExpenseAmount = requestDTO.ExpenseAmount,
-        //        ExpenseDate = requestDTO.ExpenseDate == default ? DateTimeOffset.UtcNow : requestDTO.ExpenseDate,
-        //        UserId = requestDTO.UserId,
-        //        //add image later 
-        //    };
+            var newExpense = new Expense
+            {
+                ExpenseAmount = requestDTO.ExpenseAmount,
+                ExpenseDate = requestDTO.ExpenseDate == default ? DateTimeOffset.UtcNow : requestDTO.ExpenseDate,
+                UserId = requestDTO.UserId,
+                //add image later 
+            };
 
-        //    var saved = await _expenseRepository.CreateExpenseAsync(newExpense);
+            await _expenseRepository.CreateExpenseAsync(newExpense);
 
-        //    return new ExpenseResponseDTO
-        //    {
-        //        ExpenseId = saved.ExpenseId,
-        //        ExpenseAmount = saved.ExpenseAmount,
-        //        ExpenseDate = saved.ExpenseDate,
-        //        UserId = saved.UserId
-        //    };
-        //}
+
+            //var saved = await _expenseRepository.CreateExpenseAsync(newExpense);
+
+            //return new ExpenseResponseDTO
+            //{
+            //    ExpenseId = saved.ExpenseId,
+            //    ExpenseAmount = saved.ExpenseAmount,
+            //    ExpenseDate = saved.ExpenseDate,
+            //    UserId = saved.UserId
+            //};
+        }
 
         internal async Task<ExpenseResponseDTO> GetExpenseById(int id)
         {
