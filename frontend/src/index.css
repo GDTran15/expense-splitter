@@ -1,9 +1,13 @@
 :root {
   font-family: 'Roboto', 'Arial', sans-serif;
-  background-color: rgb(245, 245, 245);
+  
 }
 
 
-
+body {
+  background-color: rgb(206, 217, 241) !important;
+  margin: 0; 
+  min-height: 100vh; 
+}
 
 

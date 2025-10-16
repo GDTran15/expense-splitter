@@ -28,7 +28,8 @@ namespace WebApplication1.Service
                 Email = requestDTO.Email,
                 Password = requestDTO.Password,
                 Phone = requestDTO.Phone,
-                AmountSpend = 0
+                AmountSpend = 0,
+                AmountEarn = 0
 
             };
             await _userRepository.CreateUserAsync(newUser);

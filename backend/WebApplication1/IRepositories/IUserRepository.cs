@@ -11,5 +11,6 @@ namespace WebApplication1.IRepositories
         Task<User?> GetUserByUsername(string username); 
     
         Task<bool> IsExistByUsernameOrEmailAsync(string username,string email);
+       
     }
 }

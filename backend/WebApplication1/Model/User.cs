@@ -16,6 +16,8 @@
 
         public double AmountSpend { get; set; }
 
+        public double AmountEarn {  get; set; }
+
         public List<Friend> FriendList { get; set; }
         public List<GroupMember> GroupList { get; set; }
 

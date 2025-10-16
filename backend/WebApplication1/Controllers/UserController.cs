@@ -6,7 +6,7 @@ using WebApplication1.Service;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/user")]
+    [Route("/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
