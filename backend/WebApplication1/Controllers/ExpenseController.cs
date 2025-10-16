@@ -17,16 +17,16 @@ namespace WebApplication1.Controllers
             _expenseService = expenseService;
         }
 
-        //create
-        [HttpPost("")]
-        public async Task<IActionResult> Create([FromBody] ExpenseRequestDTO requestDTO)
-        {
-            var saved = await _expenseService.CreateNewExpense(requestDTO);
+        ////create
+        //[HttpPost("")]
+        //public async Task<IActionResult> Create([FromBody] ExpenseRequestDTO requestDTO)
+        //{
+        //    var saved = await _expenseService.CreateNewExpense(requestDTO);
 
-            return Ok("Expense created successfully");
-        }
+        //    return Ok("Expense created successfully");
+        //}
 
-        //add a get one
+        ////add a get one
         //here
 
         //delete
