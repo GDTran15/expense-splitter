@@ -37,7 +37,7 @@ switch (currentTab) {
                 <Row >
                     <div className=' d-flex align-content-center justify-content-between'>
                
-                    <h3>SplitWise</h3> 
+                    <h3>Split That Thing</h3> 
                     <div className='d-flex align-items-center gap-2'>
                         <p className='mb-0'>Welcome, username</p>
                         <Button size='sm'>Logout</Button>
