@@ -12,3 +12,13 @@
 # General
 .vscode/
 .DS_Store
+backend/.vs/
+**/.vs/
+**/CopilotIndices/
+**/*.vsidx
+**/*.wsuo
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.sqlite
+
