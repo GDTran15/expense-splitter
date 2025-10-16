@@ -14,6 +14,6 @@ namespace WebApplication1.Model
 
         public bool Accepted { get; set; }
 
-        public RequestStatus RequestStatus { get; set; }
+        public Status RequestStatus { get; set; }
     }
 }

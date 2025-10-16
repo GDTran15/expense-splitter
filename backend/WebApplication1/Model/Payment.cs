@@ -1,4 +1,6 @@
-﻿namespace WebApplication1.Model
+﻿using WebApplication1.Enums;
+
+namespace WebApplication1.Model
 {
     public class Payment
     {
@@ -16,5 +18,7 @@
         public double Amount { get; set; }
 
         public DateTimeOffset PaidAt { get; set; }
-    }
+
+        public Status PaymentStatus { get; set; }   
+            }
 }

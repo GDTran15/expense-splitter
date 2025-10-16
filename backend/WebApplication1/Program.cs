@@ -30,6 +30,9 @@ namespace WebApplication1
             builder.Services.AddScoped<IGroupMemberRepository, GroupMemberRepository>();
             builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
             builder.Services.AddScoped<ExpenseService>();
+            builder.Services.AddScoped<IShareRequestRepository, ShareRequestRepository>();
+            builder.Services.AddScoped<IShareRequestUserRepository, ShareRequestUserRepository>();
+            builder.Services.AddScoped<ShareRequestService>();
             
             builder.Services.AddScoped<GroupService>();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();

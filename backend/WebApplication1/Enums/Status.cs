@@ -1,6 +1,6 @@
 ﻿namespace WebApplication1.Enums
 {
-    public enum RequestStatus
+    public enum Status
     {
         Pending,
         Done
