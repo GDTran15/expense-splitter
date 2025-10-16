@@ -28,17 +28,7 @@ namespace WebApplication1.Service
             };
 
             await _expenseRepository.CreateExpenseAsync(newExpense);
-
-
-            //var saved = await _expenseRepository.CreateExpenseAsync(newExpense);
-
-            //return new ExpenseResponseDTO
-            //{
-            //    ExpenseId = saved.ExpenseId,
-            //    ExpenseAmount = saved.ExpenseAmount,
-            //    ExpenseDate = saved.ExpenseDate,
-            //    UserId = saved.UserId
-            //};
+     
         }
 
         internal async Task<ExpenseResponseDTO> GetExpenseById(int id)
