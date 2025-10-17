@@ -6,7 +6,7 @@ using WebApplication1.Service;
 
 namespace WebApplication1.Controllers
 {
-    [Route("api/expense")]
+    [Route("/expense")]
     [ApiController]
     public class ExpenseController : ControllerBase
     {
@@ -18,7 +18,7 @@ namespace WebApplication1.Controllers
         }
 
         ////create
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody] ExpenseRequestDTO requestDTO)
         {
             await _expenseService.CreateNewExpense(requestDTO);

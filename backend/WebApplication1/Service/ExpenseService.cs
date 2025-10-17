@@ -15,7 +15,7 @@ namespace WebApplication1.Service
             _expenseRepository = expenseRepository;
         }
 
-        internal async Task CreateNewExpense(ExpenseRequestDTO requestDTO)
+        public async Task CreateNewExpense(ExpenseRequestDTO requestDTO)
         {
             //var expenseExist = await expenseRepository.IsExistBy //not in irepository can add later
 
@@ -31,7 +31,7 @@ namespace WebApplication1.Service
      
         }
 
-        internal async Task<ExpenseResponseDTO> GetExpenseById(int id)
+        public async Task<ExpenseResponseDTO> GetExpenseById(int id)
         {
             var expense = await _expenseRepository.GetByIdAsync(id);
             if (expense == null)
@@ -48,7 +48,7 @@ namespace WebApplication1.Service
             };
         }
 
-        internal Task<bool> DeleteExpense(int id) => _expenseRepository.DeleteAsync(id);
+        public async Task<bool> DeleteExpense(int id) => await _expenseRepository.DeleteAsync(id);
 
     }
 }

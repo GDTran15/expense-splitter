@@ -40,9 +40,6 @@ namespace WebApplication1.Repositories
             return foundId;
         }
 
-        Task<Expense> IExpenseRepository.CreateExpenseAsync(Expense expense)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

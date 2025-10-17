@@ -4,7 +4,7 @@ namespace WebApplication1.IRepositories
 {
     public interface IExpenseRepository
     {
-        Task<Expense>CreateExpenseAsync(Expense expense);
+        Task CreateExpenseAsync(Expense expense);
 
         Task<Expense?> GetByIdAsync(int id);
 
