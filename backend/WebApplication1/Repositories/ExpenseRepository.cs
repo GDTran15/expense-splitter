@@ -40,6 +40,12 @@ namespace WebApplication1.Repositories
             return foundId;
         }
 
-     
+        public async Task<List<Expense>> GetExpensesThatHaveNotBeenDone(int userId)
+        {
+            var expenses = await _context.Expenses
+                .Where(e => e.ExpenseStatus == Enums.Status.Pending && e.UserId == userId ).ToListAsync();
+
+            return expenses;
+        }
     }
 }
