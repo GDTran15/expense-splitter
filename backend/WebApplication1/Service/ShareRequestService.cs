@@ -39,5 +39,20 @@ namespace WebApplication1.Service
             }
 
         }
+
+        public async Task UpdateUserResponseForShareRequest(ShareRequestReplyDTORequest shareRequestReplyDTORequest, int shareRequestId)
+        {
+            var shareRequestUser =await _shareRequestUserRepository.GetShareRequestUser(shareRequestId, shareRequestReplyDTORequest.UserId);
+            shareRequestUser.Accepted = shareRequestReplyDTORequest.IsAccepted;
+            shareRequestUser.RequestStatus = Enums.Status.Done;
+            await _shareRequestUserRepository.UpdateShareRequestUser( shareRequestUser );
+            
+            var isAllUserHaveResponseShareRequest = await _shareRequestUserRepository.CheckIfEveryRequestHaveBeenReply(shareRequestId);
+            if (isAllUserHaveResponseShareRequest)
+            {
+
+            }
+                
+       }
     }
 }

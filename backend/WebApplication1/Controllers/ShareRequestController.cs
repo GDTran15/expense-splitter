@@ -21,5 +21,12 @@ namespace WebApplication1.Controllers
             await _shareRequestService.AddShareRequest(addShareRequestDTO);
             return Ok();
         }
+
+        [HttpPost("share-request/{shareRequestId}")]
+        public async Task<IActionResult> ReplyForThShareRequest([FromBody]ShareRequestReplyDTORequest shareRequestReplyDTORequest, [FromRoute] int shareRequestId)
+        {
+            await _shareRequestService.UpdateUserResponseForShareRequest(shareRequestReplyDTORequest, shareRequestId);
+            return Ok();
+        }
     }
 }
