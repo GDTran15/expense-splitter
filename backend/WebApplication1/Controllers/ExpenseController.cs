@@ -28,6 +28,12 @@ namespace WebApplication1.Controllers
 
         ////add a get one
         //here
+        [HttpGet]
+        public async Task<IActionResult> GetByUser([FromQuery] int userId)
+        {
+            var expenseList = await _expenseService.GetExpensesByUser(userId);
+            return Ok(expenseList);
+        }
 
         //delete
         [HttpPost("delete")]

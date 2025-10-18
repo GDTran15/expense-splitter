@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using System;
+using System.Linq;
 using WebApplication1.DTO.User;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
@@ -46,6 +47,19 @@ namespace WebApplication1.Service
                 ExpenseDate = expense.ExpenseDate,
                 UserId = expense.UserId
             };
+        }
+
+        public async Task<List<ExpenseResponseDTO>> GetExpensesByUser(int userId)
+        {
+            var expenses = await _expenseRepository.GetByUserIdAsync(userId);
+
+            return expenses.Select(e => new ExpenseResponseDTO
+            {
+                ExpenseId = e.ExpenseId,
+                ExpenseAmount = e.ExpenseAmount,
+                ExpenseDate = e.ExpenseDate,
+                UserId = e.UserId
+            }).ToList();
         }
 
         public async Task<bool> DeleteExpense(int id) => await _expenseRepository.DeleteAsync(id);

@@ -6,7 +6,10 @@ export default function ExpensePage(){
     const [show,setShow] = useState(false);
     const [amount, setAmount] = useState("");
     const [error,setError] = useState("");
+    const [expenseList, setExpenseList] = useState([]);
     const [expenseDate, setExpenseDate] = useState(new Date().toISOString().slice(0, 10)); //double check got from internet
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user)
 
     const handleCreateExpense = async (e) => {
         e.preventDefault();
@@ -23,6 +26,19 @@ export default function ExpensePage(){
         }
     }
 
+    const fetchExpense = async () => {
+        try{
+            const res = await axios.get("http://localhost:5165/expense", {
+                params: { userId: user.userId },
+            });
+            console.log(res.data);
+            setExpenseList(res.data);
+        } catch(error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {fetchExpense();}, []);
     
     //build the page you get me 
     return(
@@ -40,13 +56,43 @@ export default function ExpensePage(){
 
 
         {/*add get method in backend then fetch here to dispaly expense*/}
-        <section classname="mt-4">
+        {/* <section classname="mt-4">
             <Container>
                 <div classname="text-muted">
 
                 </div>
             </Container>
-        </section>
+        </section> */}
+        <section className="mt-4">
+        <Container>
+          {expenseList.length === 0 ? (
+            <p className="text-muted">No expenses yet. Add your first one!</p>
+          ) : (
+            <Row className="gy-2">
+              {expenseList.map((exp) => (
+                <Col key={exp.expenseId} xs={12}>
+                  <div
+                    className="d-flex justify-content-between align-items-center border rounded p-2"
+                    style={{ background: "#fff", fontSize: "0.9rem" }}
+                  >
+                    <div>
+                      <div className="fw-semibold">
+                        Expense #{exp.expenseId}
+                      </div>
+                      <div className="text-muted">
+                        {new Date(exp.expenseDate).toLocaleDateString()}
+                      </div>
+                    </div>
+                    <div className="fw-bold text-end">
+                      ${Number(exp.expenseAmount).toFixed(2)}
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          )}
+        </Container>
+      </section>
 
         <Modal        
             show={show}

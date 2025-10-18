@@ -40,6 +40,14 @@ namespace WebApplication1.Repositories
             return foundId;
         }
 
+        public async Task<List<Expense>> GetByUserIdAsync(int userId)
+        {
+            var expenseList = await _context.Expenses
+                              .Where(x => x.UserId == userId)                             
+                              .ToListAsync();
+            return expenseList;
+        }
+
         public async Task<List<Expense>> GetExpensesThatHaveNotBeenDone(int userId)
         {
             var expenses = await _context.Expenses

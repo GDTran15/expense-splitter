@@ -9,5 +9,7 @@ namespace WebApplication1.IRepositories
         Task<Expense?> GetByIdAsync(int id);
 
         Task<bool> DeleteAsync(int id);
+
+        Task<List<Expense>> GetByUserIdAsync(int userId);
     }
 }
