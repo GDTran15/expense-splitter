@@ -4,6 +4,7 @@ import { Container,Row,Col,Button,Modal,Form, ModalBody } from "react-bootstrap"
 
 export default function ExpensePage(){
     const [show,setShow] = useState(false);
+    const [expenseName, setExpenseName] = useState("");
     const [amount, setAmount] = useState("");
     const [error,setError] = useState("");
     const [expenseList, setExpenseList] = useState([]);
@@ -16,6 +17,7 @@ export default function ExpensePage(){
         setError("");
         try {
             const res = await axios.post("http://localhost:5165/expense", {
+                expenseName,
                 expenseAmount: amount,
                 expenseDate: new Date(expenseDate).toISOString(), //double check got from internet
                 userId: user.userId
@@ -54,44 +56,35 @@ export default function ExpensePage(){
             </Row> 
         </Container>
 
-
-        {/*add get method in backend then fetch here to dispaly expense*/}
-        {/* <section classname="mt-4">
-            <Container>
-                <div classname="text-muted">
-
-                </div>
-            </Container>
-        </section> */}
         <section className="mt-4">
-        <Container>
-          {expenseList.length === 0 ? (
-            <p className="text-muted">No expenses yet. Add your first one!</p>
-          ) : (
-            <Row className="gy-2">
-              {expenseList.map((exp) => (
-                <Col key={exp.expenseId} xs={12}>
-                  <div
-                    className="d-flex justify-content-between align-items-center border rounded p-2"
-                    style={{ background: "#fff", fontSize: "0.9rem" }}
-                  >
-                    <div>
-                      <div className="fw-semibold">
-                        Expense #{exp.expenseId}
-                      </div>
-                      <div className="text-muted">
-                        {new Date(exp.expenseDate).toLocaleDateString()}
-                      </div>
-                    </div>
-                    <div className="fw-bold text-end">
-                      ${Number(exp.expenseAmount).toFixed(2)}
-                    </div>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          )}
-        </Container>
+            <Container>
+            {expenseList.length === 0 ? (
+                <p className="text-muted">No expenses yet. Add your first one!</p>
+                ) : (
+                    <Row className="gy-2">
+                    {expenseList.map((exp) => (
+                        <Col key={exp.expenseId} xs={12}>
+                        <div
+                            className="d-flex justify-content-between align-items-center border rounded p-2"
+                            style={{ background: "#fff", fontSize: "0.9rem" }}
+                        >
+                            <div>
+                            <div className="fw-semibold">
+                                {exp.expenseName}
+                            </div>
+                            <div className="text-muted">
+                                {new Date(exp.expenseDate).toLocaleDateString()}
+                            </div>
+                            </div>
+                            <div className="fw-bold text-end">
+                            ${Number(exp.expenseAmount).toFixed(2)}
+                            </div>
+                        </div>
+                        </Col>
+                    ))}
+                </Row>
+                )}
+            </Container>
       </section>
 
         <Modal        
@@ -108,6 +101,17 @@ export default function ExpensePage(){
             </Modal.Header>    
             <ModalBody>
                 <Form onSubmit={handleCreateExpense}>
+                    <Form.Group classname="mb-3">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="e.g Trip"
+                            autoFocus
+                            value={expenseName}
+                            onChange={(e) => setExpenseName(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
                     <Form.Group classname="mb-3">
                         <Form.Label>Amount</Form.Label>
                         <Form.Control

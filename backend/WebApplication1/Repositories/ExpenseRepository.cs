@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Runtime.InteropServices;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
+using WebApplication1.Enums;
 
 namespace WebApplication1.Repositories
 {
@@ -43,7 +44,7 @@ namespace WebApplication1.Repositories
         public async Task<List<Expense>> GetByUserIdAsync(int userId)
         {
             var expenseList = await _context.Expenses
-                              .Where(x => x.UserId == userId)                             
+                              .Where(x => x.UserId == userId && x.ExpenseStatus == Status.Pending)                             
                               .ToListAsync();
             return expenseList;
         }

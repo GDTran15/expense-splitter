@@ -10,6 +10,8 @@ namespace WebApplication1.DTO.User
 		public DateTimeOffset ExpenseDate { get; set; }
 		public int UserId { get; set; }
 
+		public string ExpenseName { get; set; }
+
 		//add image later
 	}
 }

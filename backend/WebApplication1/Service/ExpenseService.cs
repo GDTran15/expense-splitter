@@ -4,6 +4,7 @@ using System.Linq;
 using WebApplication1.DTO.User;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
+using WebApplication1.Enums;
 
 namespace WebApplication1.Service
 {
@@ -22,9 +23,11 @@ namespace WebApplication1.Service
 
             var newExpense = new Expense
             {
+                ExpenseName = requestDTO.ExpenseName,
                 ExpenseAmount = requestDTO.ExpenseAmount,
                 ExpenseDate = requestDTO.ExpenseDate == default ? DateTimeOffset.UtcNow : requestDTO.ExpenseDate,
                 UserId = requestDTO.UserId,
+                ExpenseStatus = Status.Pending
                 //add image later 
             };
 
@@ -43,6 +46,7 @@ namespace WebApplication1.Service
             return new ExpenseResponseDTO
             {
                 ExpenseId = expense.ExpenseId,
+                ExpenseName = expense.ExpenseName,
                 ExpenseAmount = expense.ExpenseAmount,
                 ExpenseDate = expense.ExpenseDate,
                 UserId = expense.UserId
@@ -56,6 +60,7 @@ namespace WebApplication1.Service
             return expenses.Select(e => new ExpenseResponseDTO
             {
                 ExpenseId = e.ExpenseId,
+                ExpenseName = e.ExpenseName,
                 ExpenseAmount = e.ExpenseAmount,
                 ExpenseDate = e.ExpenseDate,
                 UserId = e.UserId
