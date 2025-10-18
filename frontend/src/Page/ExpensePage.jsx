@@ -22,6 +22,12 @@ export default function ExpensePage(){
                 expenseDate: new Date(expenseDate).toISOString(), //double check got from internet
                 userId: user.userId
             });
+
+            await fetchExpense();
+            setExpenseName("");
+            setAmount("");
+            setExpenseDate(new Date().toISOString().slice(0, 10));
+            setShow(false);
             console.log(res);
         } catch(error) {
             setError(error.response.data)
@@ -63,8 +69,14 @@ export default function ExpensePage(){
             <Row>
                 <Col className="d-flex align-items-center justify-content-between">
                     <h5 className="fw-bold">Expenses</h5>
-                    <Button size="sm" className="fw-bold rounded py-1 px-3"
-                    onClick={() => setShow(true)}
+                    <Button size="sm" 
+                            className="fw-bold rounded py-1 px-3"
+                            onClick={() => {
+                                setExpenseName("");
+                                setAmount("");
+                                setExpenseDate(new Date().toISOString().slice(0, 10));
+                                setShow(true);
+                            }}
                     >Add Expense</Button>
                 </Col>
             </Row> 
@@ -145,7 +157,7 @@ export default function ExpensePage(){
                         />
                     </Form.Group>
                     <Form.Group classname="mb-3">
-                        <Form.Label>Amount</Form.Label>
+                        <Form.Label>Amount $</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="e.g Trip"
