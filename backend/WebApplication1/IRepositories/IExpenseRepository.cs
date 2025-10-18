@@ -1,3 +1,4 @@
+using WebApplication1.DTO.Expense;
 using WebApplication1.Model;
 
 namespace WebApplication1.IRepositories
@@ -10,10 +11,10 @@ namespace WebApplication1.IRepositories
 
         Task<bool> DeleteAsync(int id);
 
-<<<<<<< HEAD
-        Task<List<Expense>> GetExpensesThatHaveNotBeenDone(int userId);
-=======
+
+        Task<List<ExpenseResponseDTO>> GetExpensesThatHaveNotBeenDone(int userId);
+
         Task<List<Expense>> GetByUserIdAsync(int userId);
->>>>>>> de91dd93a19c340527b1aacb59852be6c5c59369
+
     }
 }

@@ -17,7 +17,7 @@ export default function GroupPage(){
         e.preventDefault();
         setError("");
         try{
-        const res =await axios.post("http://localhost:5165/group",{
+        const res =await axios.post("https://localhost:7179/group",{
             userId: user.userId,
             groupName: groupName
         });
@@ -28,7 +28,7 @@ export default function GroupPage(){
     }
     const fetchGroup = async () => {
        try{
-        const res = await axios.get("http://localhost:5165/group",{
+        const res = await axios.get("https://localhost:7179/group",{
             params: { userId: user.userId } 
         });
         console.log(res.data);

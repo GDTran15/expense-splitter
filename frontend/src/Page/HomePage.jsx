@@ -6,6 +6,7 @@ import DashBoardPage from './DashBoardPage';
 import GroupPage from './GroupPage';
 import FriendPage from './FriendPage';
 import ExpensePage from './ExpensePage';
+import ShareRequestPage from './ShareRequestPage';
 
 export default function HomePage(){
     const [currentTab,setCurrentTab] = useState("dashboard");
@@ -24,6 +25,9 @@ switch (currentTab) {
     break;
   case "expense":
     mainContent = <ExpensePage />;
+    break;
+  case "share":
+    mainContent = <ShareRequestPage/> ;
     break;
   default:
     mainContent = <NotFFound />;
@@ -76,6 +80,13 @@ switch (currentTab) {
                     onClick={() => setCurrentTab("expense")}
                     >
                     Expense
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link className={currentTab == "share" ? style.navtabActive : "text-secondary fw-semibold"}
+                    onClick={() => setCurrentTab("share")}
+                    >
+                    Share
                     </Nav.Link>
                 </Nav.Item>
             </Nav>

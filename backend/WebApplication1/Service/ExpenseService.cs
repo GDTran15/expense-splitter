@@ -1,19 +1,26 @@
-using System.Threading.Tasks;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using WebApplication1.DTO.Expense;
+using WebApplication1.DTO.ShareRequest;
 using WebApplication1.DTO.User;
+using WebApplication1.Enums;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
-using WebApplication1.Enums;
 
 namespace WebApplication1.Service
 {
     public class ExpenseService
     {
         private readonly IExpenseRepository _expenseRepository;
+        private readonly IShareRequestRepository _shareRequestRepository;
+        private readonly IShareRequestUserRepository _shareRequestUserRepository;
 
-        public ExpenseService(IExpenseRepository expenseRepository)
+
+        public ExpenseService(IExpenseRepository expenseRepository, IShareRequestRepository shareRequestRepository, IShareRequestUserRepository shareRequestUserRepository)
         {
+            _shareRequestRepository = shareRequestRepository;
+            _shareRequestUserRepository = shareRequestUserRepository;
             _expenseRepository = expenseRepository;
         }
 
@@ -25,35 +32,40 @@ namespace WebApplication1.Service
             {
                 ExpenseName = requestDTO.ExpenseName,
                 ExpenseAmount = requestDTO.ExpenseAmount,
-                ExpenseDate = requestDTO.ExpenseDate == default ? DateTimeOffset.UtcNow : requestDTO.ExpenseDate,
+                ExpenseDate =  DateOnly.FromDateTime(DateTime.Now),
                 UserId = requestDTO.UserId,
                 ExpenseStatus = Status.Pending
                 //add image later 
             };
-
-            await _expenseRepository.CreateExpenseAsync(newExpense);
-     
-        }
-
-        public async Task<ExpenseResponseDTO> GetExpenseById(int id)
-        {
-            var expense = await _expenseRepository.GetByIdAsync(id);
-            if (expense == null)
+              await _expenseRepository.CreateExpenseAsync(newExpense);
+            var shareRequest = new ShareRequest
             {
-                throw new InvalidOperationException("Wrong id");
+                ExpenseId = newExpense.ExpenseId,
+                UserId = requestDTO.UserId,
+                CreateBy = DateOnly.FromDateTime(DateTime.Now)
+            };
+            await _shareRequestRepository.AddShareRequest(shareRequest);
+
+            var shareUserList = requestDTO.ShareUserIdList;
+
+            foreach (var userId in shareUserList)
+            {
+                ShareRequestUser shareRequestUser = new ShareRequestUser
+                {
+                    ShareRequestId = shareRequest.ShareRequestId,
+                    UserId = userId,
+                    Accepted = false,
+                    RequestStatus = Enums.Status.Pending
+                    
+                };
+                await _shareRequestUserRepository.AddShareRequestUser(shareRequestUser);
             }
 
-            return new ExpenseResponseDTO
-            {
-                ExpenseId = expense.ExpenseId,
-                ExpenseName = expense.ExpenseName,
-                ExpenseAmount = expense.ExpenseAmount,
-                ExpenseDate = expense.ExpenseDate,
-                UserId = expense.UserId
-            };
         }
 
-        public async Task<List<ExpenseResponseDTO>> GetExpensesByUser(int userId)
+   
+
+        public async Task<List<ExpenseResponseDTO>> GetExpensesByUserId(int userId)
         {
             var expenses = await _expenseRepository.GetByUserIdAsync(userId);
 
@@ -69,7 +81,7 @@ namespace WebApplication1.Service
 
         public async Task<bool> DeleteExpense(int id) => await _expenseRepository.DeleteAsync(id);
 
-       public async Task<List<Expense>> GetPendingExpense(int userId)
+       public async Task<List<ExpenseResponseDTO>> GetPendingExpense(int userId)
         {
             return await _expenseRepository.GetExpensesThatHaveNotBeenDone(userId);
         }
