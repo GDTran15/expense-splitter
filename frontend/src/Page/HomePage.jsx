@@ -9,6 +9,7 @@ import ExpensePage from './ExpensePage';
 
 export default function HomePage(){
     const [currentTab,setCurrentTab] = useState("dashboard");
+    const user = JSON.parse(localStorage.getItem("user"));
     let mainContent;
 
 switch (currentTab) {
@@ -39,7 +40,7 @@ switch (currentTab) {
                
                     <h3>Split That Thing</h3> 
                     <div className='d-flex align-items-center gap-2'>
-                        <p className='mb-0'>Welcome, username</p>
+                        <p className='mb-0'>Welcome, {user.userName}</p>
                         <Button size='sm'>Logout</Button>
                     </div>  
                     
