@@ -28,6 +28,20 @@ export default function ExpensePage(){
         }
     }
 
+    const handleDeleteExpense = async (expenseId) => {
+        if (!window.confirm("Are you sure you want to delete this expense?")) return;
+
+        try {
+            const res = await axios.post("http://localhost:5165/expense/delete", null, {
+                params: { id: expenseId },
+            });
+            console.log(res)
+            fetchExpense()
+        } catch (error) {
+            setError(error.response.data)
+        }
+    };
+
     const fetchExpense = async () => {
         try{
             const res = await axios.get("http://localhost:5165/expense", {
@@ -59,30 +73,48 @@ export default function ExpensePage(){
         <section className="mt-4">
             <Container>
             {expenseList.length === 0 ? (
-                <p className="text-muted">No expenses yet. Add your first one!</p>
+                <p className="text-muted">No expenses yet. Create an Expense</p>
                 ) : (
                     <Row className="gy-2">
-                    {expenseList.map((exp) => (
-                        <Col key={exp.expenseId} xs={12}>
-                        <div
-                            className="d-flex justify-content-between align-items-center border rounded p-2"
-                            style={{ background: "#fff", fontSize: "0.9rem" }}
-                        >
-                            <div>
-                            <div className="fw-semibold">
-                                {exp.expenseName}
-                            </div>
-                            <div className="text-muted">
-                                {new Date(exp.expenseDate).toLocaleDateString()}
-                            </div>
-                            </div>
-                            <div className="fw-bold text-end">
-                            ${Number(exp.expenseAmount).toFixed(2)}
-                            </div>
-                        </div>
-                        </Col>
-                    ))}
-                </Row>
+                        {expenseList.map((exp) => (
+                            <Col key={exp.expenseId} xs={12}>
+                                <div
+                                    className="d-flex justify-content-between align-items-center border rounded p-2"
+                                    style={{ background: "#fff", fontSize: "0.9rem" }}
+                                    >                                    
+                                    <div>
+                                        <div className="d-flex align-items-center gap-2">
+                                        <div className="fw-semibold">{exp.expenseName}</div>
+
+                                        {exp.userId === user.userId && (
+                                            <span
+                                            style={{
+                                                color: "red",
+                                                cursor: "pointer",
+                                                fontWeight: "bold",
+                                                fontSize: "1rem",
+                                                lineHeight: "1",
+                                            }}
+                                            title="Delete expense"
+                                            onClick={() => handleDeleteExpense(exp.expenseId)}
+                                            >
+                                            ❌
+                                            </span>
+                                        )}
+                                        </div>
+                                    
+                                        <div className="text-muted">
+                                        {new Date(exp.expenseDate).toLocaleDateString()}
+                                        </div>
+                                    </div>
+
+                                    <div className="fw-bold text-end">
+                                        ${Number(exp.expenseAmount).toFixed(2)}
+                                    </div>
+                                </div>  
+                            </Col>
+                        ))}
+                    </Row>
                 )}
             </Container>
       </section>
