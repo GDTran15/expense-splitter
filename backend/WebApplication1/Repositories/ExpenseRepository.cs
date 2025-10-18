@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Runtime.InteropServices;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
+using WebApplication1.Enums;
 
 namespace WebApplication1.Repositories
 {
@@ -38,6 +39,14 @@ namespace WebApplication1.Repositories
         {
             var foundId = await _context.Expenses.AsNoTracking().FirstOrDefaultAsync(e => e.ExpenseId == id); 
             return foundId;
+        }
+
+        public async Task<List<Expense>> GetByUserIdAsync(int userId)
+        {
+            var expenseList = await _context.Expenses
+                              .Where(x => x.UserId == userId && x.ExpenseStatus == Status.Pending)                             
+                              .ToListAsync();
+            return expenseList;
         }
 
         public async Task<List<Expense>> GetExpensesThatHaveNotBeenDone(int userId)

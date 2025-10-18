@@ -10,7 +10,7 @@ export default function GroupComponent({groupData}){
     const [username,setUsername] = useState("");
     const fetchMember =  async () => {
       try {
-        const res = await axios.get(`https://localhost:7179/group/${groupData.groupId}/members`);
+        const res = await axios.get(`http://localhost:5165/group/${groupData.groupId}/members`);
         setMemberList(res.data);
         
       } catch (error) {
@@ -21,7 +21,7 @@ export default function GroupComponent({groupData}){
       e.preventDefault();
       setError("");
       try {
-        const res = await axios.post(`https://localhost:7179/group/${groupData.groupId}/members`,{},{
+        const res = await axios.post(`http://localhost:5165/group/${groupData.groupId}/members`,{},{
           params : {username : username}
         });
         console.log(res)

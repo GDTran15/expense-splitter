@@ -6,6 +6,8 @@ namespace WebApplication1.Model
     {
         public int ExpenseId { get; set; }
 
+        public string ExpenseName { get; set; }
+
         public double ExpenseAmount { get; set; }
 
         public DateTimeOffset ExpenseDate { get; set; }
