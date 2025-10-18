@@ -26,6 +26,13 @@ namespace WebApplication1.Controllers
             return Ok("Expense created successfully");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetExpense([FromQuery] int userId)
+        {
+           var expenses =  await _expenseService.GetPendingExpense(userId);
+            return Ok(expenses);
+        }
+
         ////add a get one
         //here
 

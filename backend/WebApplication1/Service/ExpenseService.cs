@@ -50,5 +50,10 @@ namespace WebApplication1.Service
 
         public async Task<bool> DeleteExpense(int id) => await _expenseRepository.DeleteAsync(id);
 
+       public async Task<List<Expense>> GetPendingExpense(int userId)
+        {
+            return await _expenseRepository.GetExpensesThatHaveNotBeenDone(userId);
+        }
+
     }
 }
