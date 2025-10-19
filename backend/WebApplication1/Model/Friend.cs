@@ -6,7 +6,6 @@
         public int FriendId { get; set; }
 
         public User User { get; set; }
-
         public User UserFriend { get; set; }
     }
 }

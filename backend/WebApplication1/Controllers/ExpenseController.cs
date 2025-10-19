@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
         {
             await _expenseService.CreateNewExpense(requestDTO);
 
-            return Ok("Expense created successfully");
+            return Ok("Expense created successfully.");
         }
 
    
