@@ -68,5 +68,11 @@ namespace WebApplication1.Service
             await _friendRepository.RemoveFriendPairAsync(userId, friendId);
             return true;
         }
+
+        public async Task<List<GetFriendListDTO>> GetFriendsByUser(int userId)
+        {
+            var list = await _friendRepository.GetAllFriendsAsync(userId);
+            return list;
+        }
     }
 }

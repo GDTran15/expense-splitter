@@ -15,7 +15,7 @@ namespace WebApplication1.IRepositories
         Task AddFriendPairAsync(int aId, int bId);
         Task RemoveFriendPairAsync(int aId, int bId);
 
-        //Task<List> GetAllFriendsAsync(int userId);
+        Task<List<GetFriendListDTO>> GetAllFriendsAsync(int userId);
 
     }
 }

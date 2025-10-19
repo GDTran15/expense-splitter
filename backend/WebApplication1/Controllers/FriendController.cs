@@ -35,5 +35,13 @@ namespace WebApplication1.Controllers
             return Ok(new  { removed });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetByUser([FromQuery] int userId)
+        {
+            var friendsList = await _friendService.GetFriendsByUser(userId);
+             
+            return Ok(friendsList);
+        }
+
     }
 }

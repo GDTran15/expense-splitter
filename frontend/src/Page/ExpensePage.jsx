@@ -41,8 +41,8 @@ export default function ExpensePage(){
             const res = await axios.post("http://localhost:5165/expense/delete", null, {
                 params: { id: expenseId },
             });
-            console.log(res)
-            fetchExpense()
+            console.log(res);
+            fetchExpense();
         } catch (error) {
             setError(error.response.data)
         }
@@ -96,27 +96,27 @@ export default function ExpensePage(){
                                     >                                    
                                     <div>
                                         <div className="d-flex align-items-center gap-2">
-                                        <div className="fw-semibold">{exp.expenseName}</div>
+                                            <div className="fw-semibold">{exp.expenseName}</div>
 
-                                        {exp.userId === user.userId && (
-                                            <span
-                                            style={{
-                                                color: "red",
-                                                cursor: "pointer",
-                                                fontWeight: "bold",
-                                                fontSize: "1rem",
-                                                lineHeight: "1",
-                                            }}
-                                            title="Delete expense"
-                                            onClick={() => handleDeleteExpense(exp.expenseId)}
-                                            >
-                                            ❌
-                                            </span>
-                                        )}
+                                            {exp.userId === user.userId && (
+                                                <span
+                                                    style={{
+                                                        color: "red",
+                                                        cursor: "pointer",
+                                                        fontWeight: "bold",
+                                                        fontSize: "1rem",
+                                                        lineHeight: "1",
+                                                    }}
+                                                    title="Delete expense"
+                                                    onClick={() => handleDeleteExpense(exp.expenseId)}
+                                                    >
+                                                    ❌
+                                                </span>
+                                            )}
                                         </div>
                                     
                                         <div className="text-muted">
-                                        {new Date(exp.expenseDate).toLocaleDateString()}
+                                            {new Date(exp.expenseDate).toLocaleDateString()}
                                         </div>
                                     </div>
 

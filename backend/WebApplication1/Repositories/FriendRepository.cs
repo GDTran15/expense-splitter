@@ -71,14 +71,20 @@ namespace WebApplication1.Repositories
             await _context.SaveChangesAsync();
         }
 
-        //public async Task<List<Friend> GetAllFriendsAsync(int userId)
-        //{
-        //    var friends = await _context.Friends
-        //                  .Where(f => f.UserId == userId)
-        //                  .ToListAsync();
-        //            //wtffff idk what to do fix later
+        public async Task<List<GetFriendListDTO>> GetAllFriendsAsync(int userId)
+        {
+            var friends = await _context.Friends
+                          .Where(f => f.UserId == userId)
+                          .Select(f => new GetFriendListDTO
+                          {
+                              FriendId = f.UserFriend.UserId,
+                              FriendUsername = f.UserFriend.Username,
+                              FriendName = f.UserFriend.Name
+                          })
+                          .ToListAsync();
+            //wtffff idk what to do fix later
 
-        //    return friends;
-        //}
+            return friends;
+        }
     }
 }

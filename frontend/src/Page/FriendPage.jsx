@@ -6,7 +6,8 @@ export default function FriendPage(){
     
     const [show,setShow] = useState(false);
     const [username, setUsername] = useState("");
-    const [error,setError] = useState("");
+    const [error, setError] = useState("");
+    const [friendList, setFriendList] = useState([]);
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user)
 
@@ -19,6 +20,7 @@ export default function FriendPage(){
                  {params: { userID: user.userId }}
             );
 
+            await fetchFriend();
             setUsername("");
             setShow(false);
             console.log(res);
@@ -27,7 +29,36 @@ export default function FriendPage(){
             setError(String(error?.response?.data?.title ?? error?.response?.data ?? error?.message ?? "Failed to add friend"));
         }
     }
+
+    const handleRemoveFriend = async (friendId) => {
+        if (!window.confirm("Are you sure you want to remove this friend?")) return;
+
+        try {
+            const res = await axios.post("http://localhost:5165/friend/delete", null, {
+                params: { userId: user.userId, friendId: friendId }
+            });
+            console.log(res);
+            fetchFriend();
+        } catch (error) {
+            //setError(error.response.data)
+            setError(String(error?.response?.data?.title ?? error?.response?.data ?? error?.message ?? "Failed to remove friend"));
+        }
+    }
+
+    const fetchFriend = async () => {
+        try{
+            const res = await axios.get("http://localhost:5165/friend", {
+                params: { userId: user.userId },
+            });
+            console.log(res.data);
+            setFriendList(res.data);
+        } catch(error) {
+            console.log(error);
+        }
+    }
     
+    useEffect(() => {fetchFriend();}, []);
+
     return(
         <>
 
@@ -45,6 +76,47 @@ export default function FriendPage(){
                 </Col>
             </Row> 
         </Container>
+
+        <section className="mt-4">
+            <Container>
+            {friendList.length === 0 ? (
+                <p className="text-muted">You have no friends! Add some friends.</p>
+                ) : (
+                    <Row className="gy-2">
+                        {friendList.map((f) => (
+                            <Col key={f.friendId} xs={12}>
+                                <div
+                                    className="d-flex justify-content-between align-items-center border rounded p-2"
+                                    style={{ background: "#fff", fontSize: "0.9rem" }}
+                                    >
+                                    <div>
+                                        <div className="d-flex align-items-center gap-2">
+                                            <div className="fw-semibold">{f.friendUsername}</div>
+                                            <span
+                                                style={{
+                                                    color: "red",
+                                                    cursor: "pointer",
+                                                    fontWeight: "bold",
+                                                    fontSize: "1rem",
+                                                    lineHeight: "1",
+                                                }}
+                                                title="Remove friend"
+                                                onClick={() => handleRemoveFriend(f.friendId)}
+                                            >
+                                                ❌
+                                            </span>
+                                        </div>
+                                        <div className="text-muted" style={{ fontSize: "0.85rem" }}>
+                                            {f.name}
+                                        </div>
+                                    </div>                                                       
+                                </div>  
+                            </Col>
+                        ))}
+                    </Row>
+                )}
+            </Container>
+        </section>
 
         <Modal        
             show={show}
