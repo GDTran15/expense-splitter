@@ -12,6 +12,7 @@ namespace WebApplication1.Controllers
     {
         private readonly ExpenseService _expenseService;
 
+
         public ExpenseController(ExpenseService expenseService)
         {
             _expenseService = expenseService;
@@ -26,12 +27,14 @@ namespace WebApplication1.Controllers
             return Ok("Expense created successfully.");
         }
 
+   
+
         ////add a get one
         //here
         [HttpGet]
         public async Task<IActionResult> GetByUser([FromQuery] int userId)
         {
-            var expenseList = await _expenseService.GetExpensesByUser(userId);
+            var expenseList = await _expenseService.GetPendingExpense(userId);
             return Ok(expenseList);
         }
 

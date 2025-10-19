@@ -8,7 +8,7 @@ export default function ExpensePage(){
     const [amount, setAmount] = useState("");
     const [error,setError] = useState("");
     const [expenseList, setExpenseList] = useState([]);
-    const [expenseDate, setExpenseDate] = useState(new Date().toISOString().slice(0, 10)); //double check got from internet
+    const [expenseDate, setExpenseDate] = useState(null); //double check got from internet
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user)
 
@@ -16,7 +16,7 @@ export default function ExpensePage(){
         e.preventDefault();
         setError("");
         try {
-            const res = await axios.post("http://localhost:5165/expense", {
+            const res = await axios.post("https://localhost:7179/expense", {
                 expenseName,
                 expenseAmount: amount,
                 expenseDate: new Date(expenseDate).toISOString(), //double check got from internet
@@ -38,7 +38,7 @@ export default function ExpensePage(){
         if (!window.confirm("Are you sure you want to delete this expense?")) return;
 
         try {
-            const res = await axios.post("http://localhost:5165/expense/delete", null, {
+            const res = await axios.post("https://localhost:7179/expense/delete", null, {
                 params: { id: expenseId },
             });
             console.log(res);
@@ -50,7 +50,7 @@ export default function ExpensePage(){
 
     const fetchExpense = async () => {
         try{
-            const res = await axios.get("http://localhost:5165/expense", {
+            const res = await axios.get("https://localhost:7179/expense", {
                 params: { userId: user.userId },
             });
             console.log(res.data);
@@ -89,30 +89,30 @@ export default function ExpensePage(){
                 ) : (
                     <Row className="gy-2">
                         {expenseList.map((exp) => (
-                            <Col key={exp.expenseId} xs={12}>
+                            <Col key={exp.expenseId} xs={12} className="">
                                 <div
-                                    className="d-flex justify-content-between align-items-center border rounded p-2"
+                                    className="d-flex justify-content-between align-items-center border rounded-3 px-3 py-3 shadow mb-2"
                                     style={{ background: "#fff", fontSize: "0.9rem" }}
                                     >                                    
                                     <div>
-                                        <div className="d-flex align-items-center gap-2">
-                                            <div className="fw-semibold">{exp.expenseName}</div>
-
-                                            {exp.userId === user.userId && (
-                                                <span
-                                                    style={{
-                                                        color: "red",
-                                                        cursor: "pointer",
-                                                        fontWeight: "bold",
-                                                        fontSize: "1rem",
-                                                        lineHeight: "1",
-                                                    }}
-                                                    title="Delete expense"
-                                                    onClick={() => handleDeleteExpense(exp.expenseId)}
-                                                    >
-                                                    ❌
-                                                </span>
-                                            )}
+                                        {/* {exp.userId === user.userId && (
+                                            <span
+                                            style={{
+                                                color: "red",
+                                                cursor: "pointer",
+                                                fontWeight: "bold",
+                                                fontSize: "1rem",
+                                                lineHeight: "1",
+                                            }}
+                                            title="Delete expense"
+                                            onClick={() => handleDeleteExpense(exp.expenseId)}
+                                            >
+                                            ❌
+                                            </span>
+                                        )} */}
+                                        <div className="d-flex flex-column ">
+                                        <h5 className="fw-semibold">{exp.expenseName}</h5>
+                                        <p className="text-secondary fw-semibold small">Requested by {exp.UserId == user.userId ? "You" : exp.ownerName}</p>   
                                         </div>
                                     
                                         <div className="text-muted">
@@ -120,8 +120,18 @@ export default function ExpensePage(){
                                         </div>
                                     </div>
 
+                                    <div className="d-flex flex-column gap-5">
                                     <div className="fw-bold text-end">
                                         ${Number(exp.expenseAmount).toFixed(2)}
+                                    </div>
+                                    
+                                       {exp.RequestAccept == null ? 
+                                     <div className="d-flex gap-2"> 
+                                        <Button variant="danger" size="sm">Reject</Button>
+                                        <Button variant="success" size="sm">Accept</Button>
+                                     </div> : 
+                                        exp.RequestAccept == true ? <Button className="btn btn-lg btn-primary small" disabled>Accepted</Button>
+                                        : <Button className="btn btn-lg btn-danger small" disabled>Accepted</Button>}
                                     </div>
                                 </div>  
                             </Col>
@@ -186,6 +196,7 @@ export default function ExpensePage(){
         </Modal>
         
         
+
         </>
     )
 }

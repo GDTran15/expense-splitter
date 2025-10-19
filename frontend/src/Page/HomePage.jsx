@@ -6,9 +6,11 @@ import DashBoardPage from './DashBoardPage';
 import GroupPage from './GroupPage';
 import FriendPage from './FriendPage';
 import ExpensePage from './ExpensePage';
+import ShareRequestPage from './ShareRequestPage';
 
 export default function HomePage(){
     const [currentTab,setCurrentTab] = useState("dashboard");
+    const user = JSON.parse(localStorage.getItem("user"));
     let mainContent;
 
 switch (currentTab) {
@@ -23,6 +25,9 @@ switch (currentTab) {
     break;
   case "expense":
     mainContent = <ExpensePage />;
+    break;
+  case "share":
+    mainContent = <ShareRequestPage/> ;
     break;
   default:
     mainContent = <NotFFound />;
@@ -39,7 +44,7 @@ switch (currentTab) {
                
                     <h3>Split That Thing</h3> 
                     <div className='d-flex align-items-center gap-2'>
-                        <p className='mb-0'>Welcome, username</p>
+                        <p className='mb-0'>Welcome, {user.userName}</p>
                         <Button size='sm'>Logout</Button>
                     </div>  
                     
@@ -75,6 +80,13 @@ switch (currentTab) {
                     onClick={() => setCurrentTab("expense")}
                     >
                     Expense
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link className={currentTab == "share" ? style.navtabActive : "text-secondary fw-semibold"}
+                    onClick={() => setCurrentTab("share")}
+                    >
+                    Share
                     </Nav.Link>
                 </Nav.Item>
             </Nav>

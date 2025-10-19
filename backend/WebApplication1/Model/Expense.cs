@@ -10,7 +10,7 @@ namespace WebApplication1.Model
 
         public double ExpenseAmount { get; set; }
 
-        public DateTimeOffset ExpenseDate { get; set; }
+        public DateOnly ExpenseDate { get; set; }
 
         public string? ImageData { get; set; }
 
