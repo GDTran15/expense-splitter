@@ -34,15 +34,18 @@ namespace WebApplication1.Service
             payment.PaymentStatus = Enums.Status.Done;
             User sender = await _userRepository.GetUserByUserId(payment.SenderUserId);
             User receiver = await _userRepository.GetUserByUserId(payment.ReceiverUserId);
+          
             sender.AmountSpend -= payment.Amount;
             receiver.AmountEarn += payment.Amount;
-
+            await _userRepository.UpdateUser(sender);
+            await _userRepository.UpdateUser(receiver);
             await _paymentRepository.UpdatePayement(payment);
 
             if (await _paymentRepository.AllPaymentStatusIsDone(payment.ExpenseId))
             {
                 Expense expense = await _expenseRepository.GetByIdAsync(payment.ExpenseId);
                 expense.ExpenseStatus = Enums.Status.Done;
+                await _expenseRepository.UpdateExpenseAsync(expense);
             }
 
 

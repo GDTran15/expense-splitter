@@ -13,6 +13,6 @@ namespace WebApplication1.IRepositories
         Task<User> GetUserByUserId(int userId);
     
         Task<bool> IsExistByUsernameOrEmailAsync(string username,string email);
-       
+        Task UpdateUser(User sender);
     }
 }

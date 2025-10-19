@@ -9,7 +9,6 @@ export default function ExpensePage(){
     const [expenseName, setExpenseName] = useState("");
     const [amount, setAmount] = useState("");
     const [expenseList, setExpenseList] = useState([]);
-<<<<<<< HEAD
     const [ownExpense,setOwnExpense] = useState([])
     
     const [shareOption,setShareOption] = useState("");  
@@ -18,9 +17,6 @@ export default function ExpensePage(){
     const [userToShare,setUserToShare] = useState(undefined);
    
 
-=======
-    const [expenseDate, setExpenseDate] = useState(null); 
->>>>>>> a2ae379a183e281a088a27d9b8c23a21d74a149d
     const user = JSON.parse(localStorage.getItem("user"));
 
 
@@ -31,7 +27,6 @@ export default function ExpensePage(){
         e.preventDefault();
         
         try {
-<<<<<<< HEAD
             const res = await axios.post("https://localhost:7179/expense", {
                 
                 expenseAmount: amount,
@@ -39,13 +34,6 @@ export default function ExpensePage(){
                 expenseName: expenseName,
                 shareOption: shareOption,
                 friendOrGroupId : userToShare
-=======
-            const res = await axios.post("http://localhost:5165/expense", {
-                expenseName,
-                expenseAmount: amount,
-                expenseDate: new Date(expenseDate).toISOString(), 
-                userId: user.userId
->>>>>>> a2ae379a183e281a088a27d9b8c23a21d74a149d
             });
             console.log(userToShare);
             await fetchExpense();
@@ -65,7 +53,6 @@ export default function ExpensePage(){
         setFriendOrGroupList([])
         setChooseLabel("");
 
-<<<<<<< HEAD
         let url = "";
         switch(selectedOption){
             case "friend":
@@ -91,16 +78,6 @@ export default function ExpensePage(){
             } catch (error){
                 console.log(error)
             }
-=======
-        try {
-            const res = await axios.post("http://localhost:5165/expense/delete", null, {
-                params: { id: expenseId },
-            });
-            console.log(res);
-            fetchExpense();
-        } catch (error) {
-            setError(error.response.data)
->>>>>>> a2ae379a183e281a088a27d9b8c23a21d74a149d
         }
 
 
@@ -113,11 +90,7 @@ export default function ExpensePage(){
 
     const fetchExpense = async () => {
         try{
-<<<<<<< HEAD
             const res = await axios.get("https://localhost:7179/expense/share-request-user", {
-=======
-            const res = await axios.get("http://localhost:5165/expense", {
->>>>>>> a2ae379a183e281a088a27d9b8c23a21d74a149d
                 params: { userId: user.userId },
             });
             console.log(res);
@@ -170,59 +143,10 @@ export default function ExpensePage(){
                 ) : (
                     <Row className="gy-2">
                         {expenseList.map((exp) => (
-<<<<<<< HEAD
                             <ExpenseComponent exp={exp} fetchExpense={fetchExpense}/>
                         ))}
                         {ownExpense.map((exp) => (
                             <OwnExpenseComponent exp={exp}/>
-=======
-                            <Col key={exp.expenseId} xs={12} className="">
-                                <div
-                                    className="d-flex justify-content-between align-items-center border rounded-3 px-3 py-3 shadow mb-2"
-                                    style={{ background: "#fff", fontSize: "0.9rem" }}
-                                    >                                    
-                                    <div>
-                                        {/* {exp.userId === user.userId && (
-                                            <span
-                                            style={{
-                                                color: "red",
-                                                cursor: "pointer",
-                                                fontWeight: "bold",
-                                                fontSize: "1rem",
-                                                lineHeight: "1",
-                                            }}
-                                            title="Delete expense"
-                                            onClick={() => handleDeleteExpense(exp.expenseId)}
-                                            >
-                                            ❌
-                                            </span>
-                                        )} */}
-                                        <div className="d-flex flex-column ">
-                                        <h5 className="fw-semibold">{exp.expenseName}</h5>
-                                        <p className="text-secondary fw-semibold small">Requested by {exp.UserId == user.userId ? "You" : exp.ownerName}</p>   
-                                        </div>
-                                    
-                                        <div className="text-muted">
-                                            {new Date(exp.expenseDate).toLocaleDateString()}
-                                        </div>
-                                    </div>
-
-                                    <div className="d-flex flex-column gap-5">
-                                    <div className="fw-bold text-end">
-                                        ${Number(exp.expenseAmount).toFixed(2)}
-                                    </div>
-                                    
-                                       {exp.RequestAccept == null ? 
-                                     <div className="d-flex gap-2"> 
-                                        <Button variant="danger" size="sm">Reject</Button>
-                                        <Button variant="success" size="sm">Accept</Button>
-                                     </div> : 
-                                        exp.RequestAccept == true ? <Button className="btn btn-lg btn-primary small" disabled>Accepted</Button>
-                                        : <Button className="btn btn-lg btn-danger small" disabled>Accepted</Button>}
-                                    </div>
-                                </div>  
-                            </Col>
->>>>>>> a2ae379a183e281a088a27d9b8c23a21d74a149d
                         ))}
                     </Row>
                 )}
@@ -243,13 +167,8 @@ export default function ExpensePage(){
             </Modal.Header>    
             <ModalBody >
                 <Form onSubmit={handleCreateExpense}>
-<<<<<<< HEAD
                     <Form.Group >
                         <Form.Label className="mt-2">Name</Form.Label>
-=======
-                    <Form.Group className="mb-3">
-                        <Form.Label>Name</Form.Label>
->>>>>>> a2ae379a183e281a088a27d9b8c23a21d74a149d
                         <Form.Control
                             type="text"
                             placeholder="e.g Trip"
@@ -259,13 +178,8 @@ export default function ExpensePage(){
                             required
                         />
                     </Form.Group>
-<<<<<<< HEAD
                     <Form.Group >
                         <Form.Label className="mt-2">Amount $</Form.Label>
-=======
-                    <Form.Group className="mb-3">
-                        <Form.Label>Amount $</Form.Label>
->>>>>>> a2ae379a183e281a088a27d9b8c23a21d74a149d
                         <Form.Control
                             type="text"
                             placeholder="e.g 10000"
@@ -276,7 +190,6 @@ export default function ExpensePage(){
                             className=""
                         />
                     </Form.Group>
-<<<<<<< HEAD
                     <Form.Group >
                         <Form.Label className="mt-2">Share option </Form.Label>
                         <Form.Select onChange={handleOptionChange}>
@@ -300,18 +213,6 @@ export default function ExpensePage(){
                        
                     
                     <div className="d-flex gap-2 mt-3">
-=======
-                     <Form.Group className="mb-3">
-                        <Form.Label>Date</Form.Label>
-                        <Form.Control
-                        type="date"
-                        value={expenseDate}
-                        onChange={(e) => setExpenseDate(e.target.value)}
-                        required
-                        />
-                    </Form.Group>
-                    <div className="d-flex gap-2">
->>>>>>> a2ae379a183e281a088a27d9b8c23a21d74a149d
                         <Button variant="secondary" onClick={() => setShow(false)} className="flex-fill">Cancel</Button>
                         <Button onClick={() => setShow(false)} className="flex-fill" type="submit">Create</Button>
                     </div>

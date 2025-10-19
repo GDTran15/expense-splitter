@@ -32,12 +32,14 @@ namespace WebApplication1
             builder.Services.AddScoped<ExpenseService>();
             builder.Services.AddScoped<IShareRequestRepository, ShareRequestRepository>();
             builder.Services.AddScoped<IShareRequestUserRepository, ShareRequestUserRepository>();
-            //builder.Services.AddScoped<ShareRequestService>();
-            builder.Services.AddScoped<IFriendRepository, FriendRepository>();
-            builder.Services.AddScoped<FriendService>();
+
             builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
             builder.Services.AddScoped<ShareRequestService>();
             builder.Services.AddScoped<PaymentService>();
+
+            builder.Services.AddScoped<IFriendRepository, FriendRepository>();
+            builder.Services.AddScoped<FriendService>();
+
             
             builder.Services.AddScoped<GroupService>();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
