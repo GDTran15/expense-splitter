@@ -129,7 +129,7 @@ export default function ExpensePage(){
                     </Row>
                 )}
             </Container>
-      </section>
+        </section>
 
         <Modal        
             show={show}
@@ -145,7 +145,7 @@ export default function ExpensePage(){
             </Modal.Header>    
             <ModalBody>
                 <Form onSubmit={handleCreateExpense}>
-                    <Form.Group classname="mb-3">
+                    <Form.Group className="mb-3">
                         <Form.Label>Name</Form.Label>
                         <Form.Control
                             type="text"
@@ -156,7 +156,7 @@ export default function ExpensePage(){
                             required
                         />
                     </Form.Group>
-                    <Form.Group classname="mb-3">
+                    <Form.Group className="mb-3">
                         <Form.Label>Amount $</Form.Label>
                         <Form.Control
                             type="text"
@@ -167,7 +167,7 @@ export default function ExpensePage(){
                             required
                         />
                     </Form.Group>
-                     <Form.Group className="mb-3 flex-fill">
+                     <Form.Group className="mb-3">
                         <Form.Label>Date</Form.Label>
                         <Form.Control
                         type="date"
@@ -176,7 +176,7 @@ export default function ExpensePage(){
                         required
                         />
                     </Form.Group>
-                    <div className="d-flex gap 2">
+                    <div className="d-flex gap-2">
                         <Button variant="secondary" onClick={() => setShow(false)} className="flex-fill">Cancel</Button>
                         <Button onClick={() => setShow(false)} className="flex-fill" type="submit">Create</Button>
                     </div>
