@@ -29,8 +29,13 @@ export default function RegisterPage(){
         });
      setName(""); setUsername(""); setPassword(""); setGmail(""); setPhone("");
         alert(res.data);
-    } catch (error){
-        setError(error.response.data)
+    } catch (err){
+        console.log(err)
+        if (err.response && err.response.data) {
+        setError(err.response.data);
+    } else {
+        setError("Something went wrong. Please try again.");
+    }
     }
     
     }
@@ -60,21 +65,22 @@ export default function RegisterPage(){
             labelText="Gmail"
             changeHandle={(e) => setGmail(e.target.value)}
             inputType="email"
-            value={gmail}
+            inputValue={gmail}
+            
             placeholderValue="Enter your gmail"
             />
             <InputComponent 
             labelText="Username"
             changeHandle={(e) => setUsername(e.target.value)}
             inputType="text"
-            value={username}
+            inputValue={username}
             placeholderValue="Enter your username"
             />
             <InputComponent 
             labelText="Password"
             changeHandle={(e) => setPassword(e.target.value)}
             inputType="password"
-            value={password}
+            inputValue={password}
             placeholderValue="Enter your password"
             />
             <InputComponent 

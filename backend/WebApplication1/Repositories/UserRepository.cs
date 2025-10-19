@@ -85,6 +85,9 @@ namespace WebApplication1.Repositories
             return user;
         }
 
-        
+        public async Task<User> GetUserByUserId(int userId)
+        {
+            return await _context.Users.Where(u => u.UserId == userId).FirstOrDefaultAsync();
+        }
     }
 }

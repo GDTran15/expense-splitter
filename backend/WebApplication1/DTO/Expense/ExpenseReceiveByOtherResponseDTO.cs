@@ -1,6 +1,6 @@
 namespace WebApplication1.DTO.Expense
 {
-    public class ExpenseResponseDTO
+    public class ExpenseReceiveByOtherResponseDTO
     {
         public int ExpenseId { get; set; }
         public double ExpenseAmount { get; set; }
@@ -9,8 +9,12 @@ namespace WebApplication1.DTO.Expense
 
         public string OwnerName { get; set; }
         public string ExpenseName { get; set; }
+        public int ShareRequestId { get; set; }
 
-        public bool RequestAccept {  get; set; }
+        public double AmountToPay { get; set; }
+        public bool? RequestAccept {  get; set; }
+        
+
         //do image later
     }
 }

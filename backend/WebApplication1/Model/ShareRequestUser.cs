@@ -12,7 +12,9 @@ namespace WebApplication1.Model
 
         public User User { get; set; }
 
-        public bool Accepted { get; set; }
+        public bool? Accepted { get; set; }
+
+        public double AmountToPay { get; set; }
 
         public Status RequestStatus { get; set; }
     }

@@ -15,17 +15,24 @@ namespace WebApplication1.Controllers
             _shareRequestService = shareRequestService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateAddRequest(AddShareRequestDTO addShareRequestDTO)
-        {
-            await _shareRequestService.AddShareRequest(addShareRequestDTO);
-            return Ok();
-        }
+        //[HttpPost]
+        //public async Task<IActionResult> CreateAddRequest(AddShareRequestDTO addShareRequestDTO)
+        //{
+        //    await _shareRequestService.AddShareRequest(addShareRequestDTO);
+        //    return Ok();
+        //}
 
-        [HttpPost("share-request/{shareRequestId}")]
-        public async Task<IActionResult> ReplyForThShareRequest([FromBody]ShareRequestReplyDTORequest shareRequestReplyDTORequest, [FromRoute] int shareRequestId)
+        //[HttpPost("share-request/{shareRequestId}")]
+        //public async Task<IActionResult> ReplyForThShareRequest([FromBody]ShareRequestReplyDTORequest shareRequestReplyDTORequest, [FromRoute] int shareRequestId)
+        //{
+        //    await _shareRequestService.UpdateUserResponseForShareRequest(shareRequestReplyDTORequest, shareRequestId);
+        //    return Ok();
+        //}
+
+        [HttpPut ("/share-request/{shareRequestId}")]
+        public async Task<IActionResult> UpdateAccept(UpdateShareRequestUserDTO updateShareRequestUserDTO,[FromRoute] int shareRequestId)
         {
-            await _shareRequestService.UpdateUserResponseForShareRequest(shareRequestReplyDTORequest, shareRequestId);
+            await _shareRequestService.UpdateUserResponseForShareRequest(updateShareRequestUserDTO, shareRequestId);
             return Ok();
         }
     }

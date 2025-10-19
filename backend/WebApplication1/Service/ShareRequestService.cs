@@ -8,50 +8,51 @@ namespace WebApplication1.Service
     {
         private IShareRequestRepository _shareRequestRepository;
         private IShareRequestUserRepository _shareRequestUserRepository;
+        private IExpenseRepository _expenseRepository;
+        private IPaymentRepository _paymentRepository;
 
-        public ShareRequestService(IShareRequestRepository shareRequestRepository, IShareRequestUserRepository shareRequestUserRepository)
+
+        public ShareRequestService(IShareRequestRepository shareRequestRepository, IShareRequestUserRepository shareRequestUserRepository,IPaymentRepository paymentRepository )
         {
             _shareRequestRepository = shareRequestRepository;
             _shareRequestUserRepository = shareRequestUserRepository;
+            _paymentRepository = paymentRepository;
         }
 
-        public async Task AddShareRequest(AddShareRequestDTO addShareRequestDTO)
+      
+
+        public async Task UpdateUserResponseForShareRequest(UpdateShareRequestUserDTO updateShareRequestUserDTO, int shareRequestId)
         {
-           ShareRequest shareRequest = new ShareRequest
-           {
-               ExpenseId = addShareRequestDTO.ExpenseId,
-               UserId  = addShareRequestDTO.OwnerId,
-               CreateBy = DateOnly.FromDateTime(DateTime.Now)
-           };
-           await _shareRequestRepository.AddShareRequest(shareRequest);
-
-            var shareUserList = addShareRequestDTO.ShareUserIdList.ToList();
-
-            foreach (var userId in shareUserList)
+            var shareRequestUser =await _shareRequestUserRepository.GetShareRequestUser(shareRequestId, updateShareRequestUserDTO.UserId);
+            if (shareRequestUser == null)
             {
-                ShareRequestUser shareRequestUser = new ShareRequestUser
-                {
-                    ShareRequestId = shareRequest.ShareRequestId,
-                    UserId = userId,
-                    Accepted = false,
-                    RequestStatus = Enums.Status.Pending
-                };
+                throw new Exception("Share request user not found.");
             }
-
-        }
-
-        public async Task UpdateUserResponseForShareRequest(ShareRequestReplyDTORequest shareRequestReplyDTORequest, int shareRequestId)
-        {
-            var shareRequestUser =await _shareRequestUserRepository.GetShareRequestUser(shareRequestId, shareRequestReplyDTORequest.UserId);
-            shareRequestUser.Accepted = shareRequestReplyDTORequest.IsAccepted;
+            shareRequestUser.Accepted = updateShareRequestUserDTO.IsAccepted;
             shareRequestUser.RequestStatus = Enums.Status.Done;
             await _shareRequestUserRepository.UpdateShareRequestUser( shareRequestUser );
-            
-            var isAllUserHaveResponseShareRequest = await _shareRequestUserRepository.CheckIfEveryRequestHaveBeenReply(shareRequestId);
-            if (isAllUserHaveResponseShareRequest)
-            {
 
+
+
+            if(shareRequestUser.Accepted == true)
+            {
+                Payment payment = new Payment()
+                {
+                    ExpenseId = updateShareRequestUserDTO.ExpenseId,
+                    SenderUserId = updateShareRequestUserDTO.UserId,
+                    ReceiverUserId = updateShareRequestUserDTO.ExpenseOwnerId,
+                    Amount = updateShareRequestUserDTO.AmountToPay,
+                    PaidAt = DateOnly.FromDateTime(DateTime.Now),
+                    PaymentStatus = Enums.Status.Pending
+                };
+                await _paymentRepository.AddPayment( payment );
             }
+            
+            //var isAllUserHaveResponseShareRequest = await _shareRequestUserRepository.CheckIfEveryRequestHaveBeenReply(shareRequestId);
+            //if (isAllUserHaveResponseShareRequest)
+            //{
+           
+            //}
                 
        }
     }

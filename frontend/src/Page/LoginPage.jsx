@@ -45,6 +45,7 @@ export default function LoginPage(){
        title="Login" 
        subTitle="Join splitter community"
        optional="Create an account"
+       linkTo={"/"}
        >
          <form onSubmit={handleSubmit} >
             

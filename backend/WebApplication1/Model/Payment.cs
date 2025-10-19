@@ -17,7 +17,7 @@ namespace WebApplication1.Model
         public User ReceiverUser { get; set; }
         public double Amount { get; set; }
 
-        public DateTimeOffset PaidAt { get; set; }
+        public DateOnly PaidAt { get; set; }
 
         public Status PaymentStatus { get; set; }   
             }

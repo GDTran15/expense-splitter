@@ -35,9 +35,15 @@ namespace WebApplication1.Repositories
            
         }
 
+        public async Task<int> NumberOfPeopleInSharerequest(int shareRequestId)
+        {
+            int numberOfPeople = await _appDbContext.ShareRequestUsers.CountAsync(e => e.ShareRequestId == shareRequestId && e.Accepted == true );
+            return numberOfPeople;
+        }
+
         public async Task UpdateShareRequestUser(ShareRequestUser shareRequestUser)
         {
-            await _appDbContext.ShareRequestUsers.AddAsync(shareRequestUser);
+            _appDbContext.ShareRequestUsers.Update(shareRequestUser);
             await _appDbContext.SaveChangesAsync();
         }
 

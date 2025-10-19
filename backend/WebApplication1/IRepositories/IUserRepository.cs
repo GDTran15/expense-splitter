@@ -9,6 +9,8 @@ namespace WebApplication1.IRepositories
         Task CreateUserAsync(User user);
         
         Task<User?> GetUserByUsername(string username); 
+
+        Task<User> GetUserByUserId(int userId);
     
         Task<bool> IsExistByUsernameOrEmailAsync(string username,string email);
        

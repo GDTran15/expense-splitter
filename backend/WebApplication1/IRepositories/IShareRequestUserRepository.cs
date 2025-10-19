@@ -11,5 +11,7 @@ namespace WebApplication1.IRepositories
         Task UpdateShareRequestUser(ShareRequestUser shareRequestUser);
   
         Task<bool> CheckIfEveryRequestHaveBeenReply(int  shareRequestId);
+
+        Task<int> NumberOfPeopleInSharerequest(int shareRequestId);
     }
 }

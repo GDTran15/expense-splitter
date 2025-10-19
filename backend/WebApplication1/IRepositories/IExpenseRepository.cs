@@ -12,9 +12,12 @@ namespace WebApplication1.IRepositories
         Task<bool> DeleteAsync(int id);
 
 
-        Task<List<ExpenseResponseDTO>> GetExpensesThatHaveNotBeenDone(int userId);
+        Task<List<ExpenseReceiveByOtherResponseDTO>> GetExpensesFromShareUserThatNotDone(int userId);
+        Task<List<ExpenseReponseForOwner>> GetExpenseForOwner(int userId);
 
         Task<List<Expense>> GetByUserIdAsync(int userId);
 
+        Task UpdateExpenseAsync(Expense expense);
+        Task<Expense> FindExpenseThroughShareId(int shareId);
     }
 }

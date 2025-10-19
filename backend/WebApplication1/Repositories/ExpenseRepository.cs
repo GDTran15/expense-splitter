@@ -37,6 +37,16 @@ namespace WebApplication1.Repositories
             return false;
         }
 
+        public async Task<Expense> FindExpenseThroughShareId(int shareId)
+        {
+            var expense = await (from ex in _context.Expenses
+                                 join sh in _context.ShareRequests on ex.ExpenseId equals sh.ExpenseId
+                                 where sh.ShareRequestId == shareId
+                                 select ex
+                                 ).FirstOrDefaultAsync();
+            return expense;
+        }
+
         public async Task<Expense?> GetByIdAsync(int id)
         {
             var foundId = await _context.Expenses.AsNoTracking().FirstOrDefaultAsync(e => e.ExpenseId == id); 
@@ -51,18 +61,40 @@ namespace WebApplication1.Repositories
             return expenseList;
         }
 
-        public async Task<List<ExpenseResponseDTO>> GetExpensesThatHaveNotBeenDone(int userId)
+        public async Task<List<ExpenseReponseForOwner>> GetExpenseForOwner(int userId)
+        {
+            var expenses = await (from expense in _context.Expenses
+                                  join shareRequest in _context.ShareRequests on expense.ExpenseId equals shareRequest.ExpenseId
+                                  where expense.ExpenseStatus == Status.Pending && (expense.UserId == userId)
+                                  select new ExpenseReponseForOwner
+                                  {
+                                      ExpenseId = expense.ExpenseId,
+                                      ShareId = shareRequest.ShareRequestId,
+                                      Status = expense.ExpenseStatus,
+                                      ExpenseDate = expense.ExpenseDate,
+                                      ExpenseAmount = expense.ExpenseAmount,
+                                      ExpenseName  = expense.ExpenseName,
+
+                                  }).ToListAsync();
+            return expenses;
+        }
+
+        public async Task<List<ExpenseReceiveByOtherResponseDTO>> GetExpensesFromShareUserThatNotDone(int userId)
         {
             var expenses = await (from expense in _context.Expenses
                                   join shareRequest in _context.ShareRequests on expense.ExpenseId equals shareRequest.ExpenseId
                                   join shareRequestUser in _context.ShareRequestUsers on shareRequest.ShareRequestId equals shareRequestUser.ShareRequestId
-                                  where expense.ExpenseStatus == Status.Pending && shareRequestUser.UserId == userId
-                                  select new ExpenseResponseDTO
+                                  join user in _context.Users on expense.UserId equals user.UserId
+                                  where  shareRequestUser.RequestStatus == Status.Pending && (shareRequestUser.UserId == userId )
+                                  select new ExpenseReceiveByOtherResponseDTO
                                   {
                                       ExpenseId = expense.ExpenseId,
                                       ExpenseAmount = expense.ExpenseAmount,
                                       ExpenseDate = expense.ExpenseDate,
                                       UserId = expense.UserId,
+                                      OwnerName = user.Username,
+                                      ShareRequestId = shareRequestUser.ShareRequestId,
+                                      AmountToPay = shareRequestUser.AmountToPay,
                                       ExpenseName = expense.ExpenseName,
                                       RequestAccept = shareRequestUser.Accepted
                                   }).ToListAsync();
@@ -71,5 +103,11 @@ namespace WebApplication1.Repositories
         }
 
       
+
+        public async Task UpdateExpenseAsync(Expense expense)
+        {
+            await _context.Expenses.AddAsync(expense);
+            await _context.SaveChangesAsync();
+        }
     }
 }
