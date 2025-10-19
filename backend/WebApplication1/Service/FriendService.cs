@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using System;
 using System.Linq;
-using WebApplication1.DTO.User;
+using WebApplication1.DTO.Friend;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
 using WebApplication1.Enums;
@@ -18,11 +18,11 @@ namespace WebApplication1.Service
             _friendRepository = friendRepository;
         }
 
-        public async async AddFriend(int userId, AddFriendRequestDTO requestDTO)
+        public async Task<FriendResponseDTO> AddFriend(int userId, AddFriendRequestDTO requestDTO)
         {
-            if (requestDTO == null || string.IsNullOrWhiteSpace(requestDTO.Username)
+            if (requestDTO == null || string.IsNullOrWhiteSpace(requestDTO.Username))
             {
-                throw new InvalidOperationException("Usename is required.")
+                throw new InvalidOperationException("Usename is required.");
             }
 
             var target = await _friendRepository.GetUserByUsernameAsync(requestDTO.Username);
@@ -36,7 +36,7 @@ namespace WebApplication1.Service
                 throw new InvalidOperationException("Can't add yourself.");
             }
 
-            var already = await _friendRepository.IsFriendAsync(userId, target.UserId);
+            var already = await _friendRepository.IsFriendsAsync(userId, target.UserId);
             if (already)
             {
                 throw new InvalidOperationException("Already friends.");
@@ -55,13 +55,18 @@ namespace WebApplication1.Service
         {
             if (userId == friendId)
             {
-                throw new InvalidOperationException("Invalid.")
+                throw new InvalidOperationException("Invalid.");
             }
 
             var exists = await _friendRepository.IsFriendsAsync(userId, friendId);
-            if (!exists) return false;
+            if (!exists)
+            {
+                throw new InvalidOperationException("Friend doesn't exist.");
+                return false;
+            }
 
             await _friendRepository.RemoveFriendPairAsync(userId, friendId);
             return true;
         }
     }
+}

@@ -44,8 +44,8 @@ namespace WebApplication1.Repositories
 
         public async Task AddFriendPairAsync(int aId, int bId)
         {
-            var f1 = new Friend { UserId = aId,. FriendId = bId };
-            var f2 = new Friend { UserId = bId,. FriendId = aId };
+            var f1 = new Friend { UserId = aId, FriendId = bId };
+            var f2 = new Friend { UserId = bId, FriendId = aId };
 
             await _context.Friends.AddAsync(f1);
             await _context.Friends.AddAsync(f2);
@@ -53,22 +53,22 @@ namespace WebApplication1.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task RemoveFreindPairAsync(int aId, int bId)
+        public async Task RemoveFriendPairAsync(int aId, int bId)
         {
-            var pair1 = await _context.Friends.FirstOrDefaultAsync(f => f.UserId == aId && f.FriendId = bId);
-            var pair2 = await _context.Friends.FirstOrDefaultAsync(f => f.UserId == bId && f.FriendId = aId);
+            var pair1 = await _context.Friends.FirstOrDefaultAsync(f => f.UserId == aId && f.FriendId == bId);
+            var pair2 = await _context.Friends.FirstOrDefaultAsync(f => f.UserId == bId && f.FriendId == aId);
 
             if (pair1 != null)
             {
                 _context.Friends.Remove(pair1);
-                await _context.SaveChangesAsync();
             }
 
             if (pair2 != null)
             {
                 _context.Friends.Remove(pair2);
-                await _context.SaveChangesAsync();
             }
+            
+            await _context.SaveChangesAsync();
         }
 
         //public async Task<List<Friend> GetAllFriendsAsync(int userId)
