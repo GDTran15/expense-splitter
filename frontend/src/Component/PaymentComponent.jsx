@@ -7,8 +7,8 @@ export default function PaymentComponent({payment,fetchPayments}){
     const handlePay = async () => {
        
         try {
-            axios.put(`https://localhost:7179/payment/${payment.paymentId}`)
-            fetchPayments();
+            await axios.put(`https://localhost:7179/payment/${payment.paymentId}`)
+            setTimeout(() => fetchPayments(), 50);
         } catch (err) {
             console.log(err)
         }

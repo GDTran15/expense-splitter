@@ -28,6 +28,7 @@ export default function RegisterPage(){
                 Phone: phone
         });
      setName(""); setUsername(""); setPassword(""); setGmail(""); setPhone("");
+     
         alert(res.data);
     } catch (err){
         console.log(err)

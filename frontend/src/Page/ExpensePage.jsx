@@ -36,7 +36,7 @@ export default function ExpensePage(){
                 friendOrGroupId : userToShare
             });
             console.log(userToShare);
-            await fetchExpense();
+            await fetchOwnExpense();
             setExpenseName("");
             setAmount("");
            
@@ -74,7 +74,7 @@ export default function ExpensePage(){
                 });
                 console.log(res)
                 setFriendOrGroupList(res.data)
-                fetchOwnExpense();
+                
             } catch (error){
                 console.log(error)
             }

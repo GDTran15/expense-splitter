@@ -38,7 +38,7 @@ export default function PaymentPage(){
             <Container>
                 <Row className="gap-3">
                     {payments && payments.map(payment => 
-                        <PaymentComponent key={payment.paymentId} payment={payment}/>
+                        <PaymentComponent key={payment.paymentId} payment={payment} fetchPayments={fetchPayments}/>
                     )
                     }
                 </Row>

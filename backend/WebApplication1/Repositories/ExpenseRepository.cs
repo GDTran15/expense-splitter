@@ -106,7 +106,7 @@ namespace WebApplication1.Repositories
 
         public async Task UpdateExpenseAsync(Expense expense)
         {
-            await _context.Expenses.AddAsync(expense);
+             _context.Expenses.Update(expense);
             await _context.SaveChangesAsync();
         }
     }
