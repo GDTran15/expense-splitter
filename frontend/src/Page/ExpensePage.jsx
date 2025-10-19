@@ -8,7 +8,7 @@ export default function ExpensePage(){
     const [amount, setAmount] = useState("");
     const [error,setError] = useState("");
     const [expenseList, setExpenseList] = useState([]);
-    const [expenseDate, setExpenseDate] = useState(null); //double check got from internet
+    const [expenseDate, setExpenseDate] = useState(null); 
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user)
 
@@ -16,10 +16,10 @@ export default function ExpensePage(){
         e.preventDefault();
         setError("");
         try {
-            const res = await axios.post("https://localhost:7179/expense", {
+            const res = await axios.post("http://localhost:5165/expense", {
                 expenseName,
                 expenseAmount: amount,
-                expenseDate: new Date(expenseDate).toISOString(), //double check got from internet
+                expenseDate: new Date(expenseDate).toISOString(), 
                 userId: user.userId
             });
 
@@ -38,7 +38,7 @@ export default function ExpensePage(){
         if (!window.confirm("Are you sure you want to delete this expense?")) return;
 
         try {
-            const res = await axios.post("https://localhost:7179/expense/delete", null, {
+            const res = await axios.post("http://localhost:5165/expense/delete", null, {
                 params: { id: expenseId },
             });
             console.log(res);
@@ -50,7 +50,7 @@ export default function ExpensePage(){
 
     const fetchExpense = async () => {
         try{
-            const res = await axios.get("https://localhost:7179/expense", {
+            const res = await axios.get("http://localhost:5165/expense", {
                 params: { userId: user.userId },
             });
             console.log(res.data);

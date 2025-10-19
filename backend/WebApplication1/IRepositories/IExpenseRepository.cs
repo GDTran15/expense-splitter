@@ -11,7 +11,6 @@ namespace WebApplication1.IRepositories
 
         Task<bool> DeleteAsync(int id);
 
-
         Task<List<ExpenseResponseDTO>> GetExpensesThatHaveNotBeenDone(int userId);
 
         Task<List<Expense>> GetByUserIdAsync(int userId);
