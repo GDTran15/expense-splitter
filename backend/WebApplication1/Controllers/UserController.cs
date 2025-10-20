@@ -23,6 +23,10 @@ namespace WebApplication1.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> RegisterUser([FromBody] RegisterRequestDTO requestDTO)// [fromRoute] when in path
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             await _userService.CreateNewUser(requestDTO);
 
             return Ok("User succesfully created");

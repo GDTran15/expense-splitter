@@ -11,13 +11,14 @@ export default function LoginPage(){
     const navigate = useNavigate();
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
-   
+    const [validationError,setValitionError] = useState({});
     const [error,setError] = useState("");
     
 
  
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setValitionError({});
         setError("");
         try{
         const res = await axios.post("https://localhost:7179/user/login",{
@@ -30,8 +31,13 @@ export default function LoginPage(){
         console.log(res.data)
         
         navigate("/home");
-    } catch (error){
-        setError(error.response.data)
+    } catch (err)
+    {if (typeof err.response.data == "string") {
+        setError(err.response.data);
+    } else {
+        console.log(err.response.data.errors);
+        setValitionError(err.response.data.errors);
+    }
     }
     
     }
@@ -43,7 +49,7 @@ export default function LoginPage(){
  
     <FormComponent 
        title="Login" 
-       subTitle="Join splitter community"
+       subTitle="Join Split That Thing community"
        optional="Create an account"
        linkTo={"/"}
        >
@@ -53,15 +59,17 @@ export default function LoginPage(){
             labelText="Username"
             changeHandle={(e) => setUsername(e.target.value)}
             inputType="text"
-            value={username}
+            inputValue={username}
             placeholderValue="Enter your username"
+            validationError={validationError.Username}
             />
             <InputComponent 
             labelText="Password"
             changeHandle={(e) => setPassword(e.target.value)}
             inputType="password"
-            value={password}
+            inputValue={password}
             placeholderValue="Enter your password"
+            validationError={validationError.Password}
             />
             <button type="submit" className="btn btn-warning w-100 mt-2">Login</button>
                     </form>

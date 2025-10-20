@@ -117,5 +117,12 @@ namespace WebApplication1.Service
         {
             return await _expenseRepository.GetExpenseForOwner(userId);
         }
+
+        public async Task ChangeExpenseStatusToDone(int expenseId)
+        {
+            var expense = await _expenseRepository.GetByIdAsync(expenseId);
+            expense.ExpenseStatus = Status.Done;
+            await _expenseRepository.UpdateExpenseAsync(expense);
+        }
     }
 }

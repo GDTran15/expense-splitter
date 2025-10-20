@@ -27,6 +27,12 @@ namespace WebApplication1.Controllers
             return Ok("Expense created successfully.");
         }
 
+        [HttpPut("/expense/{expenseId}")]
+        public async Task<IActionResult> UpdateExpenseStatus([FromRoute] int expenseId)
+        {
+            await _expenseService.ChangeExpenseStatusToDone(expenseId);
+            return Ok("Expense Done");
+        }
    
 
         ////add a get one

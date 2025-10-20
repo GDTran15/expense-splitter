@@ -49,5 +49,9 @@ namespace WebApplication1.Service
             }
         }
 
+        public async Task<List<ShareRequestUserStatusDTOResponse>> GetShareRequestUserStatus(int shareRequestId)
+        {
+            return await _shareRequestUserRepository.GetShareRequestUserAcceptStatus(shareRequestId);
+        }
     }
 }

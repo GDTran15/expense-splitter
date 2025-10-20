@@ -6,6 +6,7 @@ import FormComponent from "../Component/FormComponent";
 import InputComponent from "../Component/InputComponent";
 import axios from "axios";
 
+
 export default function RegisterPage(){
     const [name,setName] = useState("");
     const [gmail,setGmail] = useState("");
@@ -13,12 +14,13 @@ export default function RegisterPage(){
     const [password,setPassword] = useState("");
     const [phone,setPhone] = useState("");
     const [error,setError] = useState("");
-    
+    const [validationError, setValitionError] = useState({})
 
  
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
+        setValitionError({});
         try{
         const res = await axios.post("http://localhost:5165/user/register",{
              Name: name,
@@ -31,12 +33,13 @@ export default function RegisterPage(){
      
         alert(res.data);
     } catch (err){
-        console.log(err)
-        if (err.response && err.response.data) {
+        if (typeof err.response.data == "string") {
         setError(err.response.data);
     } else {
-        setError("Something went wrong. Please try again.");
+        console.log(err.response.data.errors);
+        setValitionError(err.response.data.errors);
     }
+    
     }
     
     }
@@ -60,6 +63,7 @@ export default function RegisterPage(){
             inputType="text"
             inputValue={name}
             placeholderValue="Enter your name"
+            validationError={validationError.Name}
             />
             
             <InputComponent 
@@ -67,7 +71,7 @@ export default function RegisterPage(){
             changeHandle={(e) => setGmail(e.target.value)}
             inputType="email"
             inputValue={gmail}
-            
+            validationError={validationError.Email}
             placeholderValue="Enter your gmail"
             />
             <InputComponent 
@@ -76,6 +80,7 @@ export default function RegisterPage(){
             inputType="text"
             inputValue={username}
             placeholderValue="Enter your username"
+            validationError={validationError.Username}
             />
             <InputComponent 
             labelText="Password"
@@ -83,6 +88,7 @@ export default function RegisterPage(){
             inputType="password"
             inputValue={password}
             placeholderValue="Enter your password"
+            validationError={validationError.Password}
             />
             <InputComponent 
             labelText="Phone"
@@ -90,6 +96,7 @@ export default function RegisterPage(){
             inputType="text"
             inputValue={phone}
             placeholderValue="Enter your phone number"
+            validationError={validationError.Phone}
             />
             <button type="submit" className="btn btn-warning w-100 mt-2">Register</button>
                     </form>

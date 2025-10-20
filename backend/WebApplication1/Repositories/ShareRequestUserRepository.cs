@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.DTO.ShareRequest;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
 
@@ -33,6 +34,21 @@ namespace WebApplication1.Repositories
             var shareRequestUser = await _appDbContext.ShareRequestUsers.Where(e => e.ShareRequestId == shareRequestId && e.UserId == userId).FirstOrDefaultAsync();
             return shareRequestUser;
            
+        }
+
+        public async Task<List<ShareRequestUserStatusDTOResponse>> GetShareRequestUserAcceptStatus(int shareRequestId)
+        {
+            return await (from shareRequestUser in _appDbContext.ShareRequestUsers
+                          join user in _appDbContext.Users on shareRequestUser.UserId equals user.UserId
+                          where shareRequestUser.ShareRequestId == shareRequestId
+                          select new ShareRequestUserStatusDTOResponse
+                          {
+                              UserId = user.UserId,
+                              Username = user.Username,
+                              IsAccepted = shareRequestUser.Accepted,
+
+                          }).ToListAsync(); 
+                
         }
 
         public async Task<int> NumberOfPeopleInSharerequest(int shareRequestId)

@@ -41,12 +41,12 @@ namespace WebApplication1.Service
             await _userRepository.UpdateUser(receiver);
             await _paymentRepository.UpdatePayement(payment);
 
-            if (await _paymentRepository.AllPaymentStatusIsDone(payment.ExpenseId))
-            {
-                Expense expense = await _expenseRepository.GetByIdAsync(payment.ExpenseId);
-                expense.ExpenseStatus = Enums.Status.Done;
-                await _expenseRepository.UpdateExpenseAsync(expense);
-            }
+            //if (await _paymentRepository.AllPaymentStatusIsDone(payment.ExpenseId))
+            //{
+            //    Expense expense = await _expenseRepository.GetByIdAsync(payment.ExpenseId);
+            //    expense.ExpenseStatus = Enums.Status.Done;
+            //    await _expenseRepository.UpdateExpenseAsync(expense);
+            //}
 
 
 

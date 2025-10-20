@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using WebApplication1.DTO.ShareRequest;
 using WebApplication1.Model;
 
 namespace WebApplication1.IRepositories
@@ -13,5 +14,6 @@ namespace WebApplication1.IRepositories
         Task<bool> CheckIfEveryRequestHaveBeenReply(int  shareRequestId);
 
         Task<int> NumberOfPeopleInSharerequest(int shareRequestId);
+        Task<List<ShareRequestUserStatusDTOResponse>> GetShareRequestUserAcceptStatus(int shareRequestId);
     }
 }

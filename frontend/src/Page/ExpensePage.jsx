@@ -146,7 +146,7 @@ export default function ExpensePage(){
                             <ExpenseComponent exp={exp} fetchExpense={fetchExpense}/>
                         ))}
                         {ownExpense.map((exp) => (
-                            <OwnExpenseComponent exp={exp}/>
+                            <OwnExpenseComponent exp={exp} fetchExpense={fetchOwnExpense} setExpenseList={setExpenseList}/>
                         ))}
                     </Row>
                 )}

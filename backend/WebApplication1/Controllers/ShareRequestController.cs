@@ -33,8 +33,16 @@ namespace WebApplication1.Controllers
         [HttpPut ("/share-request/{shareRequestId}")]
         public async Task<IActionResult> UpdateAccept(UpdateShareRequestUserDTO updateShareRequestUserDTO,[FromRoute] int shareRequestId)
         {
+           
             await _shareRequestService.UpdateUserResponseForShareRequest(updateShareRequestUserDTO, shareRequestId);
             return Ok();
+        }
+
+        [HttpGet("/share-request/{shareRequestId}")]
+        public async Task<IActionResult> ViewShareRequestUserStatus([FromRoute] int shareRequestId)
+        {
+            var result = await _shareRequestService.GetShareRequestUserStatus(shareRequestId);
+            return Ok(result);
         }
     }
 }
