@@ -22,7 +22,7 @@ export default function RegisterPage(){
         setError("");
         setValitionError({});
         try{
-        const res = await axios.post("http://localhost:5165/user/register",{
+        const res = await axios.post("https://localhost:7179/user/register",{
              Name: name,
                 Username: username,
                 Password: password,

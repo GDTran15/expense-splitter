@@ -19,6 +19,5 @@ namespace WebApplication1.DTO.User
         [Required]
         public int FriendOrGroupId { get; set; }
 
-        //add image later
     }
 }

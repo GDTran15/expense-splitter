@@ -17,22 +17,18 @@ export default function GroupPage(){
         e.preventDefault();
         setError("");
         try{
-        const res =await axios.post("http://localhost:5165/group",{
+        const res =await axios.post("https://localhost:7179/group",{
             userId: user.userId,
             groupName: groupName
         });
         console.log(res);
-        setShow(false);
-        
-        setGroupName("");         
-        fetchGroup();
     } catch(error){
         setError(error.response.data)
     }
     }
     const fetchGroup = async () => {
        try{
-        const res = await axios.get("http://localhost:5165/group",{
+        const res = await axios.get("https://localhost:7179/group",{
             params: { userId: user.userId } 
         });
         console.log(res.data);
@@ -99,7 +95,7 @@ export default function GroupPage(){
             </Form.Group>
             <div className="d-flex gap-2">
                  <Button variant="secondary" onClick={() => setShow(false)} className="flex-fill">Cancel</Button>
-                 <Button  className="flex-fill" type="submit">Create</Button>
+                 <Button onClick={() => setShow(false)} className="flex-fill" type="submit">Create</Button>
             </div>
           </Form>
           {error === "" ? "" : <p className="text-danger">*{error}</p>}
