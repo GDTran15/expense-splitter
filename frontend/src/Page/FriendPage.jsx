@@ -15,7 +15,7 @@ export default function FriendPage(){
         e.preventDefault();
         setError("");
         try {
-            const res = await axios.post("http://localhost:5165/friend", {
+            const res = await axios.post("https://localhost:7179/friend", {
                 username: username.trim() },
                  {params: { userID: user.userId }}
             );
@@ -34,7 +34,7 @@ export default function FriendPage(){
         if (!window.confirm("Are you sure you want to remove this friend?")) return;
 
         try {
-            const res = await axios.post("http://localhost:5165/friend/delete", null, {
+            const res = await axios.post("https://localhost:7179/friend/delete", null, {
                 params: { userId: user.userId, friendId: friendId }
             });
             console.log(res);
@@ -47,7 +47,7 @@ export default function FriendPage(){
 
     const fetchFriend = async () => {
         try{
-            const res = await axios.get("http://localhost:5165/friend", {
+            const res = await axios.get("https://localhost:7179/friend", {
                 params: { userId: user.userId },
             });
             console.log(res.data);
