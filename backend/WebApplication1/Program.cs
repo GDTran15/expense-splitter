@@ -40,7 +40,9 @@ namespace WebApplication1
             builder.Services.AddScoped<IFriendRepository, FriendRepository>();
             builder.Services.AddScoped<FriendService>();
 
-            
+            builder.Services.AddScoped<IAnalyticsRepository, AnalyticsRepository>();
+            builder.Services.AddScoped<AnalyticsService>();
+
             builder.Services.AddScoped<GroupService>();
             builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 

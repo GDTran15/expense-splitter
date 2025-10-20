@@ -14,7 +14,5 @@ namespace WebApplication1.DTO.Expense
         public double AmountToPay { get; set; }
         public bool? RequestAccept {  get; set; }
         
-
-        //do image later
     }
 }

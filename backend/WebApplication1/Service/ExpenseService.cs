@@ -39,7 +39,6 @@ namespace WebApplication1.Service
                 ExpenseDate =  DateOnly.FromDateTime(DateTime.Now),
                 UserId = requestDTO.UserId,
                 ExpenseStatus = Status.Pending
-                //add image later 
             };
               await _expenseRepository.CreateExpenseAsync(newExpense);
             var shareRequest = new ShareRequest

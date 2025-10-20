@@ -20,5 +20,5 @@ namespace WebApplication1.Model
         public DateOnly PaidAt { get; set; }
 
         public Status PaymentStatus { get; set; }   
-            }
+    }
 }

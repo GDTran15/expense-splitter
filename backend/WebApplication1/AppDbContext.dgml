@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="TopToBottom" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Expense" Category="EntityType" Annotations="Relational:TableName: Expenses RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="342.658333333333,583.64,428.653333333333,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Expense" Name="Expense" />
+    <Node Id="Expense.ExpenseAmount" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="540.528333333333,791.52,153.47,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ExpenseAmount (double)" MaxLength="None" Name="ExpenseAmount" PropertyAccessMode="PropertyAccessMode.Default" Type="double" ValueGenerated="None" />
+    <Node Id="Expense.ExpenseDate" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="362.658333333333,791.52,147.87,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ExpenseDate (DateOnly)" MaxLength="None" Name="ExpenseDate" PropertyAccessMode="PropertyAccessMode.Default" Type="DateOnly" ValueGenerated="None" />
+    <Node Id="Expense.ExpenseId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Npgsql:ValueGenerationStrategy: IdentityByDefaultColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="362.658333333333,679.6,97.6166666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ExpenseId (int)" MaxLength="None" Name="ExpenseId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Expense.ExpenseName" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="362.658333333333,735.56,135.386666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ExpenseName (string)" MaxLength="None" Name="ExpenseName" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Expense.ExpenseStatus" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="528.045,735.56,137.813333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ExpenseStatus (Status)" MaxLength="None" Name="ExpenseStatus" PropertyAccessMode="PropertyAccessMode.Default" Type="Status" ValueGenerated="None" />
+    <Node Id="Expense.ImageData" Category="Property Optional" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="633.015,679.6,118.296666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="False" IsShadow="False" IsUnicode="True" Label="ImageData (string)" MaxLength="None" Name="ImageData" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Expense.Payments" Category="Navigation Collection" Bounds="561.778333333333,623.64,86.3166666666666,25.96" Dependent="Payment" Field="" Inverse="Expense" Label="Payments (*)" Name="Payments" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Payment&gt;" />
+    <Node Id="Expense.ShareRequests" Category="Navigation Collection" Bounds="490.275,679.6,112.74,25.96" Dependent="ShareRequest" Field="" Inverse="Expense" Label="ShareRequests (*)" Name="ShareRequests" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;ShareRequest&gt;" />
+    <Node Id="Expense.User" Category="Navigation Property" Bounds="362.658333333333,623.64,60.7833333333333,25.96" Dependent="" Field="" Inverse="ExpenseList" Label="User (1)" Name="User" Principal="User" PropertyAccessMode="PropertyAccessMode.Default" Type="User" />
+    <Node Id="Expense.UserId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="453.441666666666,623.64,78.3366666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="UserId (int)" MaxLength="None" Name="UserId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Friend" Category="EntityType" Annotations="ComplexPropertyDiscoveryConvention:ComplexCandidates: System.Collections.Generic.Dictionary`2[System.String,System.Reflection.MemberInfo] Relational:TableName: Friends RelationshipDiscoveryConvention:AmbiguousNavigations: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.MemberInfo,System.Type] RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="854.425,611.62,209.12,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Friend" Name="Friend" />
+    <Node Id="Friend.FriendId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="874.425,707.58,87.6233333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="FriendId (int)" MaxLength="None" Name="FriendId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Friend.User" Category="Navigation Property" Bounds="874.425,651.62,60.7833333333333,25.96" Dependent="" Field="" Inverse="FriendList" Label="User (1)" Name="User" Principal="User" PropertyAccessMode="PropertyAccessMode.Default" Type="User" />
+    <Node Id="Friend.UserFriend" Category="Navigation Property" Bounds="874.425,763.54,93.8566666666667,25.96" Dependent="" Field="" Inverse="" Label="UserFriend (1)" Name="UserFriend" Principal="User" PropertyAccessMode="PropertyAccessMode.Default" Type="User" />
+    <Node Id="Friend.UserId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="965.208333333333,651.62,78.3366666666668,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="UserId (int)" MaxLength="None" Name="UserId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Group" Category="EntityType" Annotations="Relational:TableName: Groups RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="20,939.400000000001,255.97,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Group" Name="Group" />
+    <Node Id="Group.CreatedDate" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,1091.32,179.453333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="CreatedDate (DateTimeOffset)" MaxLength="None" Name="CreatedDate" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTimeOffset" ValueGenerated="None" />
+    <Node Id="Group.GroupId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Npgsql:ValueGenerationStrategy: IdentityByDefaultColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,979.400000000001,87.83,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="GroupId (int)" MaxLength="None" Name="GroupId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Group.GroupName" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="40,1035.36,125.6,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="GroupName (string)" MaxLength="None" Name="GroupName" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="Group.MemberList" Category="Navigation Collection" Bounds="157.83,979.400000000001,98.14,25.96" Dependent="GroupMember" Field="" Inverse="Group" Label="MemberList (*)" Name="MemberList" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;GroupMember&gt;" />
+    <Node Id="GroupMember" Category="EntityType" Annotations="Relational:TableName: GroupMembers RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="36.9016666666666,611.62,222.166666666667,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="GroupMember" Name="GroupMember" />
+    <Node Id="GroupMember.Group" Category="Navigation Property" Bounds="56.9016666666666,651.62,70.2766666666666,25.96" Dependent="" Field="" Inverse="MemberList" Label="Group (1)" Name="Group" Principal="Group" PropertyAccessMode="PropertyAccessMode.Default" Type="Group" />
+    <Node Id="GroupMember.GroupId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="56.9016666666666,707.58,87.83,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="GroupId (int)" MaxLength="None" Name="GroupId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="GroupMember.Member" Category="Navigation Property" Bounds="157.178333333333,651.62,81.89,25.96" Dependent="" Field="" Inverse="GroupList" Label="Member (1)" Name="Member" Principal="User" PropertyAccessMode="PropertyAccessMode.Default" Type="User" />
+    <Node Id="GroupMember.MemberId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="56.9016666666666,763.54,99.4433333333334,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="MemberId (int)" MaxLength="None" Name="MemberId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="IModel" Category="Model" Annotations="BaseTypeDiscoveryConvention:DerivedTypes: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.IConventionEntityType]] InversePropertyAttributeConvention:InverseNavigations: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.SortedSet`1[System.Type]] NonNullableConventionState: System.Reflection.NullabilityInfoContext Npgsql:ValueGenerationStrategy: IdentityByDefaultColumn Relational:MaxIdentifierLength: 63" Bounds="0,0,1281.89,1213.24" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" Label="AppDbContext" ProductVersion="9.0.10" PropertyAccessMode="PropertyAccessMode.Default" />
+    <Node Id="Payment" Category="EntityType" Annotations="ComplexPropertyDiscoveryConvention:ComplexCandidates: System.Collections.Generic.Dictionary`2[System.String,System.Reflection.MemberInfo] Relational:TableName: Payments RelationshipDiscoveryConvention:AmbiguousNavigations: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.MemberInfo,System.Type] RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="208.256666666666,283.84,415.456666666667,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="Payment" Name="Payment" />
+    <Node Id="Payment.Amount" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="493.31,379.8,110.403333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Amount (double)" MaxLength="None" Name="Amount" PropertyAccessMode="PropertyAccessMode.Default" Type="double" ValueGenerated="None" />
+    <Node Id="Payment.Expense" Category="Navigation Property" Bounds="228.256666666666,323.84,80.0633333333333,25.96" Dependent="" Field="" Inverse="Payments" Label="Expense (1)" Name="Expense" Principal="Expense" PropertyAccessMode="PropertyAccessMode.Default" Type="Expense" />
+    <Node Id="Payment.ExpenseId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="338.32,323.84,97.6166666666666,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ExpenseId (int)" MaxLength="None" Name="ExpenseId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Payment.PaidAt" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="398.696666666666,491.72,147.39,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="PaidAt (DateTimeOffset)" MaxLength="None" Name="PaidAt" PropertyAccessMode="PropertyAccessMode.Default" Type="DateTimeOffset" ValueGenerated="None" />
+    <Node Id="Payment.PaymentId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Npgsql:ValueGenerationStrategy: IdentityByDefaultColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="228.256666666666,379.8,100.243333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="PaymentId (int)" MaxLength="None" Name="PaymentId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="Payment.PaymentStatus" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="228.256666666666,491.72,140.44,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="PaymentStatus (Status)" MaxLength="None" Name="PaymentStatus" PropertyAccessMode="PropertyAccessMode.Default" Type="Status" ValueGenerated="None" />
+    <Node Id="Payment.ReceiverUser" Category="Navigation Property" Bounds="358.5,379.8,104.81,25.96" Dependent="" Field="" Inverse="ReceivePayments" Label="ReceiverUser (1)" Name="ReceiverUser" Principal="User" PropertyAccessMode="PropertyAccessMode.Default" Type="User" />
+    <Node Id="Payment.ReceiverUserId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="373.549999999999,435.76,122.363333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ReceiverUserId (int)" MaxLength="None" Name="ReceiverUserId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="Payment.SenderUser" Category="Navigation Property" Bounds="465.936666666667,323.84,97.74,25.96" Dependent="" Field="" Inverse="SendPayments" Label="SenderUser (1)" Name="SenderUser" Principal="User" PropertyAccessMode="PropertyAccessMode.Default" Type="User" />
+    <Node Id="Payment.SenderUserId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="228.256666666666,435.76,115.293333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="SenderUserId (int)" MaxLength="None" Name="SenderUserId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="ShareRequest" Category="EntityType" Annotations="Relational:TableName: ShareRequests RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="654.173333333333,283.84,323.623333333334,253.84" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="ShareRequest" Name="ShareRequest" />
+    <Node Id="ShareRequest.CreateBy" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="830.84,435.76,126.956666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="CreateBy (DateOnly)" MaxLength="None" Name="CreateBy" PropertyAccessMode="PropertyAccessMode.Default" Type="DateOnly" ValueGenerated="None" />
+    <Node Id="ShareRequest.Expense" Category="Navigation Property" Bounds="782.509999999999,323.84,80.0633333333333,25.96" Dependent="" Field="" Inverse="ShareRequests" Label="Expense (1)" Name="Expense" Principal="Expense" PropertyAccessMode="PropertyAccessMode.Default" Type="Expense" />
+    <Node Id="ShareRequest.ExpenseId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="674.173333333333,379.8,97.6166666666666,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ExpenseId (int)" MaxLength="None" Name="ExpenseId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="ShareRequest.ListSharerequestUser" Category="Navigation Collection" Bounds="674.173333333333,491.72,146.496666666667,25.96" Dependent="ShareRequestUser" Field="" Inverse="ShareRequest" Label="ListSharerequestUser (*)" Name="ListSharerequestUser" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;ShareRequestUser&gt;" />
+    <Node Id="ShareRequest.ShareOwner" Category="Navigation Property" Bounds="801.79,379.8,101.676666666667,25.96" Dependent="" Field="" Inverse="ShareRequestsLists" Label="ShareOwner (1)" Name="ShareOwner" Principal="User" PropertyAccessMode="PropertyAccessMode.Default" Type="User" />
+    <Node Id="ShareRequest.ShareRequestId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Npgsql:ValueGenerationStrategy: IdentityByDefaultColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="674.173333333333,435.76,126.666666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ShareRequestId (int)" MaxLength="None" Name="ShareRequestId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="ShareRequest.UserId" Category="Property Foreign" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="674.173333333333,323.84,78.3366666666666,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="UserId (int)" MaxLength="None" Name="UserId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="ShareRequestUser" Category="EntityType" Annotations="Relational:TableName: ShareRequestUsers RelationshipDiscoveryConvention:NavigationCandidates: Microsoft.EntityFrameworkCore.Utilities.OrderedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" BaseClass="" Bounds="928.079999999999,39.9999999999998,333.81,197.88" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="ShareRequestUser" Name="ShareRequestUser" />
+    <Node Id="ShareRequestUser.Accepted" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="948.079999999999,135.96,104.113333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Accepted (bool)" MaxLength="None" Name="Accepted" PropertyAccessMode="PropertyAccessMode.Default" Type="bool" ValueGenerated="None" />
+    <Node Id="ShareRequestUser.RequestStatus" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1104.74666666667,191.92,137.143333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="RequestStatus (Status)" MaxLength="None" Name="RequestStatus" PropertyAccessMode="PropertyAccessMode.Default" Type="Status" ValueGenerated="None" />
+    <Node Id="ShareRequestUser.ShareRequest" Category="Navigation Property" Bounds="1082.19333333333,135.96,109.113333333333,25.96" Dependent="" Field="" Inverse="ListSharerequestUser" Label="ShareRequest (1)" Name="ShareRequest" Principal="ShareRequest" PropertyAccessMode="PropertyAccessMode.Default" Type="ShareRequest" />
+    <Node Id="ShareRequestUser.ShareRequestId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="948.08,191.92,126.666666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="ShareRequestId (int)" MaxLength="None" Name="ShareRequestId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="ShareRequestUser.User" Category="Navigation Property" Bounds="948.079999999999,79.9999999999998,60.7833333333333,25.96" Dependent="" Field="" Inverse="ShareRequestRecieveList" Label="User (1)" Name="User" Principal="User" PropertyAccessMode="PropertyAccessMode.Default" Type="User" />
+    <Node Id="ShareRequestUser.UserId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="1038.86333333333,79.9999999999998,78.3366666666666,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="True" IsIndexed="True" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="UserId (int)" MaxLength="None" Name="UserId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="None" />
+    <Node Id="User" Category="EntityType" Annotations="" BaseClass="" Bounds="529.353333333333,883.440000000001,495.263333333333,309.8" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" Group="Expanded" IsAbstract="False" Label="User" Name="User" />
+    <Node Id="User.AmountEarn" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="705.523333333333,1091.32,133.543333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="AmountEarn (double)" MaxLength="None" Name="AmountEarn" PropertyAccessMode="PropertyAccessMode.Default" Type="double" ValueGenerated="None" />
+    <Node Id="User.AmountSpend" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="549.353333333333,1147.28,143.963333333333,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="AmountSpend (double)" MaxLength="None" Name="AmountSpend" PropertyAccessMode="PropertyAccessMode.Default" Type="double" ValueGenerated="None" />
+    <Node Id="User.Email" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="890.536666666666,923.440000000001,88.95,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Email (string)" MaxLength="None" Name="Email" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="User.ExpenseList" Category="Navigation Collection" Bounds="795.903333333333,979.400000000001,96.3133333333333,25.96" Dependent="Expense" Field="" Inverse="User" Label="ExpenseList (*)" Name="ExpenseList" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Expense&gt;" />
+    <Node Id="User.FriendList" Category="Navigation Collection" Bounds="657.69,923.440000000001,86.3199999999999,25.96" Dependent="Friend" Field="" Inverse="User" Label="FriendList (*)" Name="FriendList" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Friend&gt;" />
+    <Node Id="User.GroupList" Category="Navigation Collection" Bounds="774.01,923.440000000001,86.5266666666668,25.96" Dependent="GroupMember" Field="" Inverse="Member" Label="GroupList (*)" Name="GroupList" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;GroupMember&gt;" />
+    <Node Id="User.Name" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="549.353333333333,979.400000000001,92.3200000000001,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Name (string)" MaxLength="None" Name="Name" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="User.Password" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="549.353333333333,1035.36,110.17,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Password (string)" MaxLength="None" Name="Password" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="User.Phone" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="671.673333333333,979.400000000001,94.23,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Phone (string)" MaxLength="None" Name="Phone" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+    <Node Id="User.ReceivePayments" Category="Navigation Collection" Bounds="549.353333333333,1091.32,126.17,25.96" Dependent="Payment" Field="" Inverse="ReceiverUser" Label="ReceivePayments (*)" Name="ReceivePayments" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Payment&gt;" />
+    <Node Id="User.SendPayments" Category="Navigation Collection" Bounds="689.523333333333,1035.36,112.823333333333,25.96" Dependent="Payment" Field="" Inverse="SenderUser" Label="SendPayments (*)" Name="SendPayments" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;Payment&gt;" />
+    <Node Id="User.ShareRequestRecieveList" Category="Navigation Collection" Bounds="723.316666666666,1147.28,165.216666666667,25.96" Dependent="ShareRequestUser" Field="" Inverse="User" Label="ShareRequestRecieveList (*)" Name="ShareRequestRecieveList" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;ShareRequestUser&gt;" />
+    <Node Id="User.ShareRequestsLists" Category="Navigation Collection" Bounds="869.066666666666,1091.32,135.55,25.96" Dependent="ShareRequest" Field="" Inverse="ShareOwner" Label="ShareRequestsLists (*)" Name="ShareRequestsLists" Principal="" PropertyAccessMode="PropertyAccessMode.Default" Type="List&lt;ShareRequest&gt;" />
+    <Node Id="User.UserId" Category="Property Primary" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Npgsql:ValueGenerationStrategy: IdentityByDefaultColumn" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="549.353333333333,923.440000000001,78.3366666666667,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="True" IsRequired="True" IsShadow="False" IsUnicode="True" Label="UserId (int)" MaxLength="None" Name="UserId" PropertyAccessMode="PropertyAccessMode.Default" Type="int" ValueGenerated="ValueGenerated.OnAdd" />
+    <Node Id="User.Username" Category="Property Required" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" BeforeSaveBehavior="PropertySaveBehavior.Save" Bounds="832.346666666666,1035.36,113.92,25.96" Field="" IsAlternateKey="False" IsConcurrencyToken="False" IsForeignKey="False" IsIndexed="False" IsPrimaryKey="False" IsRequired="True" IsShadow="False" IsUnicode="True" Label="Username (string)" MaxLength="None" Name="Username" PropertyAccessMode="PropertyAccessMode.Default" Type="string" ValueGenerated="None" />
+  </Nodes>
+  <Links>
+    <Link Source="Expense" Target="Expense.ExpenseAmount" Category="Contains" />
+    <Link Source="Expense" Target="Expense.ExpenseDate" Category="Contains" />
+    <Link Source="Expense" Target="Expense.ExpenseId" Category="Contains" />
+    <Link Source="Expense" Target="Expense.ExpenseName" Category="Contains" />
+    <Link Source="Expense" Target="Expense.ExpenseStatus" Category="Contains" />
+    <Link Source="Expense" Target="Expense.ImageData" Category="Contains" />
+    <Link Source="Expense" Target="Expense.Payments" Category="Contains" />
+    <Link Source="Expense" Target="Expense.ShareRequests" Category="Contains" />
+    <Link Source="Expense" Target="Expense.User" Category="Contains" />
+    <Link Source="Expense" Target="Expense.UserId" Category="Contains" />
+    <Link Source="Expense" Target="User" Category="Foreign Key" Annotations="" Bounds="642.17138671875,837.47998046875,25.8319091796875,38.4871826171875" From="Expense.UserId" IsUnique="False" Label="1:*" LabelBounds="657.595165354811,852.48,14.0733333333336,15.9600000000003" Name="Expense -&gt; User" To="User.UserId" />
+    <Link Source="Friend" Target="Friend.FriendId" Category="Contains" />
+    <Link Source="Friend" Target="Friend.User" Category="Contains" />
+    <Link Source="Friend" Target="Friend.UserFriend" Category="Contains" />
+    <Link Source="Friend" Target="Friend.UserId" Category="Contains" />
+    <Link Source="Friend" Target="User" Category="Foreign Key" Annotations="" Bounds="867.362243652344,809.5,36.686279296875,66.0715942382813" From="Friend.UserId" IsUnique="False" Label="1:*" LabelBounds="875.752954115565,852.48,14.0733333333337,15.9600000000003" Name="Friend -&gt; User" To="User.UserId" />
+    <Link Source="Group" Target="Group.CreatedDate" Category="Contains" />
+    <Link Source="Group" Target="Group.GroupId" Category="Contains" />
+    <Link Source="Group" Target="Group.GroupName" Category="Contains" />
+    <Link Source="Group" Target="Group.MemberList" Category="Contains" />
+    <Link Source="GroupMember" Target="Group" Category="Foreign Key" Annotations="" Bounds="147.985000610352,809.5,0,120.900024414063" From="GroupMember.GroupId" IsUnique="False" Label="1:*" LabelBounds="133.911666666667,852.480000000001,14.0733333333333,15.96" Name="GroupMember -&gt; Group" To="Group.GroupId" />
+    <Link Source="GroupMember" Target="GroupMember.Group" Category="Contains" />
+    <Link Source="GroupMember" Target="GroupMember.GroupId" Category="Contains" />
+    <Link Source="GroupMember" Target="GroupMember.Member" Category="Contains" />
+    <Link Source="GroupMember" Target="GroupMember.MemberId" Category="Contains" />
+    <Link Source="GroupMember" Target="User" Category="Foreign Key" Annotations="" Bounds="225.512496948242,809.5,295.339309692383,139.853698730469" From="GroupMember.MemberId" IsUnique="False" Label="1:*" LabelBounds="255.468514673582,845.204817365196,14.0733333333333,15.96" Name="GroupMember -&gt; User" To="User.UserId" />
+    <Link Source="IModel" Target="Expense" Category="Contains" />
+    <Link Source="IModel" Target="Friend" Category="Contains" />
+    <Link Source="IModel" Target="Group" Category="Contains" />
+    <Link Source="IModel" Target="GroupMember" Category="Contains" />
+    <Link Source="IModel" Target="Payment" Category="Contains" />
+    <Link Source="IModel" Target="ShareRequest" Category="Contains" />
+    <Link Source="IModel" Target="ShareRequestUser" Category="Contains" />
+    <Link Source="IModel" Target="User" Category="Contains" />
+    <Link Source="Payment" Target="Expense" Category="Foreign Key" Annotations="" Bounds="475.677185058594,537.679992675781,17.7852783203125,37.8157958984375" From="Payment.ExpenseId" IsUnique="False" Label="1:*" LabelBounds="472.411666666667,552.68,14.0733333333333,15.96" Name="Payment -&gt; Expense" To="Expense.ExpenseId" />
+    <Link Source="Payment" Target="Payment.Amount" Category="Contains" />
+    <Link Source="Payment" Target="Payment.Expense" Category="Contains" />
+    <Link Source="Payment" Target="Payment.ExpenseId" Category="Contains" />
+    <Link Source="Payment" Target="Payment.PaidAt" Category="Contains" />
+    <Link Source="Payment" Target="Payment.PaymentId" Category="Contains" />
+    <Link Source="Payment" Target="Payment.PaymentStatus" Category="Contains" />
+    <Link Source="Payment" Target="Payment.ReceiverUser" Category="Contains" />
+    <Link Source="Payment" Target="Payment.ReceiverUserId" Category="Contains" />
+    <Link Source="Payment" Target="Payment.SenderUser" Category="Contains" />
+    <Link Source="Payment" Target="Payment.SenderUserId" Category="Contains" />
+    <Link Source="Payment" Target="User" Category="Foreign Key" Annotations="" Bounds="303.984985351563,537.679992675781,216.9443359375,404.36572265625" From="Payment.SenderUserId" IsUnique="False" Label="1:*" LabelBounds="289.911666666667,702.58,14.0733333333333,15.96" Name="Payment -&gt; User" To="User.UserId" />
+    <Link Source="ShareRequest" Target="Expense" Category="Foreign Key" Annotations="" Bounds="672.515991210938,537.679992675781,33.8216552734375,39.1495361328125" From="ShareRequest.ExpenseId" IsUnique="False" Label="1:*" LabelBounds="686.485,552.68,14.0733333333335,15.96" Name="ShareRequest -&gt; Expense" To="Expense.ExpenseId" />
+    <Link Source="ShareRequest" Target="ShareRequest.CreateBy" Category="Contains" />
+    <Link Source="ShareRequest" Target="ShareRequest.Expense" Category="Contains" />
+    <Link Source="ShareRequest" Target="ShareRequest.ExpenseId" Category="Contains" />
+    <Link Source="ShareRequest" Target="ShareRequest.ListSharerequestUser" Category="Contains" />
+    <Link Source="ShareRequest" Target="ShareRequest.ShareOwner" Category="Contains" />
+    <Link Source="ShareRequest" Target="ShareRequest.ShareRequestId" Category="Contains" />
+    <Link Source="ShareRequest" Target="ShareRequest.UserId" Category="Contains" />
+    <Link Source="ShareRequest" Target="User" Category="Foreign Key" Annotations="" Bounds="807.368591308594,537.679992675781,8.61639404296875,336.80517578125" From="ShareRequest.UserId" IsUnique="False" Label="1:*" LabelBounds="801.911666666666,702.58,14.0733333333337,15.96" Name="ShareRequest -&gt; User" To="User.UserId" />
+    <Link Source="ShareRequestUser" Target="ShareRequest" Category="Foreign Key" Annotations="" Bounds="952.703918457031,237.880004882813,40.7276000976563,39.6795349121094" From="ShareRequestUser.ShareRequestId" IsUnique="False" Label="1:*" LabelBounds="969.844539401074,252.88,14.0733333333333,15.96" Name="ShareRequestUser -&gt; ShareRequest" To="ShareRequest.ShareRequestId" />
+    <Link Source="ShareRequestUser" Target="ShareRequestUser.Accepted" Category="Contains" />
+    <Link Source="ShareRequestUser" Target="ShareRequestUser.RequestStatus" Category="Contains" />
+    <Link Source="ShareRequestUser" Target="ShareRequestUser.ShareRequest" Category="Contains" />
+    <Link Source="ShareRequestUser" Target="ShareRequestUser.ShareRequestId" Category="Contains" />
+    <Link Source="ShareRequestUser" Target="ShareRequestUser.User" Category="Contains" />
+    <Link Source="ShareRequestUser" Target="ShareRequestUser.UserId" Category="Contains" />
+    <Link Source="ShareRequestUser" Target="User" Category="Foreign Key" Annotations="" Bounds="1029.51513671875,237.880004882813,65.4698486328125,641.045532226563" From="ShareRequestUser.UserId" IsUnique="False" Label="1:*" LabelBounds="1080.91166666667,552.68,14.0733333333333,15.96" Name="ShareRequestUser -&gt; User" To="User.UserId" />
+    <Link Source="User" Target="User.AmountEarn" Category="Contains" />
+    <Link Source="User" Target="User.AmountSpend" Category="Contains" />
+    <Link Source="User" Target="User.Email" Category="Contains" />
+    <Link Source="User" Target="User.ExpenseList" Category="Contains" />
+    <Link Source="User" Target="User.FriendList" Category="Contains" />
+    <Link Source="User" Target="User.GroupList" Category="Contains" />
+    <Link Source="User" Target="User.Name" Category="Contains" />
+    <Link Source="User" Target="User.Password" Category="Contains" />
+    <Link Source="User" Target="User.Phone" Category="Contains" />
+    <Link Source="User" Target="User.ReceivePayments" Category="Contains" />
+    <Link Source="User" Target="User.SendPayments" Category="Contains" />
+    <Link Source="User" Target="User.ShareRequestRecieveList" Category="Contains" />
+    <Link Source="User" Target="User.ShareRequestsLists" Category="Contains" />
+    <Link Source="User" Target="User.UserId" Category="Contains" />
+    <Link Source="User" Target="User.Username" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="EntityType" />
+    <Category Id="Foreign Key" />
+    <Category Id="Model" />
+    <Category Id="Navigation Collection" />
+    <Category Id="Navigation Property" />
+    <Category Id="Property Foreign" />
+    <Category Id="Property Optional" />
+    <Category Id="Property Primary" />
+    <Category Id="Property Required" />
+  </Categories>
+  <Properties>
+    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
+    <Property Id="BaseClass" Description="Base class" Group="Model Properties" DataType="System.String" />
+    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
+    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Field" Description="Backing field" Group="Model Properties" DataType="System.String" />
+    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsAbstract" Label="IsAbstract" Description="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="MaxLength" DataType="System.String" />
+    <Property Id="Name" Group="Model Properties" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
+    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
+    <Property Id="Type" Description="CLR data type" Group="Model Properties" DataType="System.String" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
+      <Condition Expression="HasCategory('EntityType')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Required" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Required')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Property" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Property')" />
+      <Setter Property="Background" Value="#FF990000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Collection" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Collection')" />
+      <Setter Property="Background" Value="#FFFF3232" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Model" ValueLabel="True">
+      <Condition Expression="HasCategory('Model')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+</DirectedGraph>
