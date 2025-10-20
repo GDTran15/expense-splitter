@@ -7,6 +7,7 @@ export default function GroupComponent({groupData}){
    const user = JSON.parse(localStorage.getItem("user"));
     const [memberList,setMemberList] = useState([]);
     const [error,setError] = useState("");
+    const [validationError,setValitionError] = useState({})
     const [username,setUsername] = useState("");
     const fetchMember =  async () => {
       try {
@@ -27,8 +28,14 @@ export default function GroupComponent({groupData}){
         console.log(res)
         setShow(false);
         fetchMember();
-       }catch (error) {
-        setError(error.response.data)
+       }catch (err) {
+        if (typeof err.response.data == "string") {
+        setError(err.response.data);
+    } else {
+        console.log(err.response.data.errors);
+        setValitionError(err.response.data.errors);
+    }
+    
        }
     }
     useEffect(() => {
@@ -71,7 +78,10 @@ export default function GroupComponent({groupData}){
       <Modal.Body>
          <Form onSubmit={handleAddMember} >
             <Form.Group className="mb-3">
+              <div className="d-flex justify-content-between">
               <Form.Label>Enter user username to add</Form.Label>
+              {validationError && <p className="text-danger">*{validationError.username}</p>}
+              </div>
               <Form.Control
                 type="text"
                 placeholder="e.g maxvu"

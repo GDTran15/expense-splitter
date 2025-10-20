@@ -13,6 +13,7 @@ namespace WebApplication1.IRepositories
         Task<List<PaymentsResponseDTO>> GetPaymentList(int userId);
 
         Task UpdatePayement(Payment paymment);
-
+        
+        
     }
 }

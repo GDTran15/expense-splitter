@@ -33,6 +33,8 @@ namespace WebApplication1.Repositories
             return await appDbContext.Payments.Where(e => e.PaymentId == paymentId).FirstOrDefaultAsync();   
         }
 
+       
+
         public async Task<List<PaymentsResponseDTO>> GetPaymentList(int userId)
         {
             var payments = await (from payment  in appDbContext.Payments

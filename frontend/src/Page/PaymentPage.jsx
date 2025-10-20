@@ -28,7 +28,7 @@ export default function PaymentPage(){
                 <Container>
             <Row>
                 <Col className="d-flex align-items-center justify-content-between">
-                    <h5 className="fw-bold">Your Groups</h5>
+                    <h5 className="fw-bold">Payments</h5>
                 
                 </Col>
             </Row>

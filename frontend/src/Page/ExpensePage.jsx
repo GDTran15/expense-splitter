@@ -15,7 +15,8 @@ export default function ExpensePage(){
     const [friendOrGroupList, setFriendOrGroupList] = useState([]);
     const [chooseLabel, setChooseLabel] = useState("");
     const [userToShare,setUserToShare] = useState(undefined);
-   
+    const [error,setError] = useState("");
+     const[validationError,setValitionError] = useState({});
 
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -41,9 +42,15 @@ export default function ExpensePage(){
             setAmount("");
            
             setShow(false);
-            console.log(res);
-        } catch(error) {
-            console.log(error.response.data)
+         
+        } catch(err) {
+            if (typeof err.response.data == "string") {
+                console.log(err)
+            setError(err.response.data);
+            } else {
+                console.log(err.response.data.errors);
+                setValitionError(err.response.data.errors);
+            }
         }
     }
 
@@ -72,7 +79,7 @@ export default function ExpensePage(){
                const res = await axios.get(url,{
                     params: {userId : user.userId}
                 });
-                console.log(res)
+             
                 setFriendOrGroupList(res.data)
                 
             } catch (error){
@@ -146,7 +153,7 @@ export default function ExpensePage(){
                             <ExpenseComponent exp={exp} fetchExpense={fetchExpense}/>
                         ))}
                         {ownExpense.map((exp) => (
-                            <OwnExpenseComponent exp={exp} fetchExpense={fetchOwnExpense} setExpenseList={setExpenseList}/>
+                            <OwnExpenseComponent exp={exp}/>
                         ))}
                     </Row>
                 )}
@@ -214,7 +221,7 @@ export default function ExpensePage(){
                     
                     <div className="d-flex gap-2 mt-3">
                         <Button variant="secondary" onClick={() => setShow(false)} className="flex-fill">Cancel</Button>
-                        <Button onClick={() => setShow(false)} className="flex-fill" type="submit">Create</Button>
+                        <Button  className="flex-fill" type="submit">Create</Button>
                     </div>
                 </Form>
               
