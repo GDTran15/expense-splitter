@@ -6,7 +6,8 @@ import DashBoardPage from './DashBoardPage';
 import GroupPage from './GroupPage';
 import FriendPage from './FriendPage';
 import ExpensePage from './ExpensePage';
-import ShareRequestPage from './ShareRequestPage';
+import ShareRequestPage from './PaymentPage';
+import PaymentPage from './PaymentPage';
 
 export default function HomePage(){
     const [currentTab,setCurrentTab] = useState("dashboard");
@@ -26,8 +27,8 @@ switch (currentTab) {
   case "expense":
     mainContent = <ExpensePage />;
     break;
-  case "share":
-    mainContent = <ShareRequestPage/> ;
+  case "payment":
+    mainContent = <PaymentPage/> ;
     break;
   default:
     mainContent = <NotFFound />;
@@ -83,10 +84,10 @@ switch (currentTab) {
                     </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link className={currentTab == "share" ? style.navtabActive : "text-secondary fw-semibold"}
-                    onClick={() => setCurrentTab("share")}
+                    <Nav.Link className={currentTab == "payment" ? style.navtabActive : "text-secondary fw-semibold"}
+                    onClick={() => setCurrentTab("payment")}
                     >
-                    Share
+                    Payment
                     </Nav.Link>
                 </Nav.Item>
             </Nav>

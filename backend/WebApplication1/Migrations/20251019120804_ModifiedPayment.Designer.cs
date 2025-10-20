@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WebApplication1.Model;
@@ -11,9 +12,11 @@ using WebApplication1.Model;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251019120804_ModifiedPayment")]
+    partial class ModifiedPayment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,8 +123,8 @@ namespace WebApplication1.Migrations
                     b.Property<int>("ExpenseId")
                         .HasColumnType("integer");
 
-                    b.Property<DateOnly>("PaidAt")
-                        .HasColumnType("date");
+                    b.Property<DateTimeOffset>("PaidAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("PaymentStatus")
                         .HasColumnType("integer");
@@ -177,7 +180,7 @@ namespace WebApplication1.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("integer");
 
-                    b.Property<bool?>("Accepted")
+                    b.Property<bool>("Accepted")
                         .HasColumnType("boolean");
 
                     b.Property<double>("AmountToPay")

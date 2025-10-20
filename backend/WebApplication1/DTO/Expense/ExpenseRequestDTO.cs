@@ -6,14 +6,18 @@ namespace WebApplication1.DTO.User
 	{
 		[Required]
 		public double ExpenseAmount {  get; set; }
-		
-		
-		public int UserId { get; set; }
 
-	
-		public string ExpenseName { get; set; }
+        [Required]
+        public int UserId { get; set; }
 
-        public List<int> ShareUserIdList { get; set; }
+        [Required]
+        public string ExpenseName { get; set; }
+
+        [Required]
+        public string ShareOption { get; set; }
+
+        [Required]
+        public int FriendOrGroupId { get; set; }
 
         //add image later
     }

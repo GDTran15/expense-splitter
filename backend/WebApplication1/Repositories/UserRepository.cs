@@ -54,20 +54,7 @@ namespace WebApplication1.Repositories
 
         }
 
-        public async Task<bool> UpdateAsync(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<User?> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> IsExistByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public async Task<User?> GetByUsernameAndPassWord(string username, string password)
         {
@@ -85,6 +72,15 @@ namespace WebApplication1.Repositories
             return user;
         }
 
-        
+        public async Task<User> GetUserByUserId(int userId)
+        {
+            return await _context.Users.Where(u => u.UserId == userId).FirstOrDefaultAsync();
+        }
+
+        public async Task UpdateUser(User user)
+        {
+             _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+        }
     }
 }

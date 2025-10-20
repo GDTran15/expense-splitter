@@ -7,6 +7,7 @@ using WebApplication1.DTO.User;
 using WebApplication1.Enums;
 using WebApplication1.IRepositories;
 using WebApplication1.Model;
+using WebApplication1.Util;
 
 namespace WebApplication1.Service
 {
@@ -15,18 +16,21 @@ namespace WebApplication1.Service
         private readonly IExpenseRepository _expenseRepository;
         private readonly IShareRequestRepository _shareRequestRepository;
         private readonly IShareRequestUserRepository _shareRequestUserRepository;
+        private readonly IGroupMemberRepository _groupMemberRepository;
 
 
-        public ExpenseService(IExpenseRepository expenseRepository, IShareRequestRepository shareRequestRepository, IShareRequestUserRepository shareRequestUserRepository)
+        public ExpenseService(IExpenseRepository expenseRepository, IShareRequestRepository shareRequestRepository, IShareRequestUserRepository shareRequestUserRepository, IGroupMemberRepository 
+            groupMemberRepository)
         {
             _shareRequestRepository = shareRequestRepository;
             _shareRequestUserRepository = shareRequestUserRepository;
             _expenseRepository = expenseRepository;
+            _groupMemberRepository = groupMemberRepository;
         }
 
         public async Task CreateNewExpense(ExpenseRequestDTO requestDTO)
         {
-            //var expenseExist = await expenseRepository.IsExistBy //not in irepository can add later
+            
 
             var newExpense = new Expense
             {
@@ -46,45 +50,72 @@ namespace WebApplication1.Service
             };
             await _shareRequestRepository.AddShareRequest(shareRequest);
 
-            var shareUserList = requestDTO.ShareUserIdList;
+            var shareTo = requestDTO.ShareOption;
 
-            foreach (var userId in shareUserList)
+            if (shareTo == "friend")
             {
                 ShareRequestUser shareRequestUser = new ShareRequestUser
                 {
                     ShareRequestId = shareRequest.ShareRequestId,
-                    UserId = userId,
+                    UserId = requestDTO.FriendOrGroupId,
                     Accepted = false,
-                    RequestStatus = Enums.Status.Pending
-                    
+                    AmountToPay = SplittingPayment.SplittingPaymentForFriends(requestDTO.ExpenseAmount),
+                    RequestStatus = Status.Pending
+
                 };
                 await _shareRequestUserRepository.AddShareRequestUser(shareRequestUser);
+            } else
+            {
+                var groupId = requestDTO.FriendOrGroupId;
+                var groupMember = await _groupMemberRepository.GetGroupMemberByGroupId(groupId);
+                foreach (var member in groupMember)
+                {
+                    if(member.UserId == requestDTO.UserId)
+                    {
+                        continue;
+                    }
+                    ShareRequestUser shareRequestUser = new()
+                    {
+                        ShareRequestId = shareRequest.ShareRequestId,
+                        UserId = member.UserId,
+                        Accepted = null,
+                        AmountToPay = SplittingPayment.SplittingPaymentForGroups(requestDTO.ExpenseAmount, groupMember.Count),
+                        RequestStatus = Status.Pending,
+
+
+                    };
+                    await _shareRequestUserRepository.AddShareRequestUser(shareRequestUser);
+                }
             }
 
         }
 
    
 
-        public async Task<List<ExpenseResponseDTO>> GetExpensesByUserId(int userId)
-        {
-            var expenses = await _expenseRepository.GetByUserIdAsync(userId);
+        //public async Task<List<ExpenseResponseDTO>> GetExpensesByUserId(int userId)
+        //{
+        //    var expenses = await _expenseRepository.GetByUserIdAsync(userId);
 
-            return expenses.Select(e => new ExpenseResponseDTO
-            {
-                ExpenseId = e.ExpenseId,
-                ExpenseName = e.ExpenseName,
-                ExpenseAmount = e.ExpenseAmount,
-                ExpenseDate = e.ExpenseDate,
-                UserId = e.UserId
-            }).ToList();
-        }
+        //    return expenses.Select(e => new ExpenseResponseDTO
+        //    {
+        //        ExpenseId = e.ExpenseId,
+        //        ExpenseName = e.ExpenseName,
+        //        ExpenseAmount = e.ExpenseAmount,
+        //        ExpenseDate = e.ExpenseDate,
+        //        UserId = e.UserId
+        //    }).ToList();
+        //}
 
         public async Task<bool> DeleteExpense(int id) => await _expenseRepository.DeleteAsync(id);
 
-       public async Task<List<ExpenseResponseDTO>> GetPendingExpense(int userId)
+       public async Task<List<ExpenseReceiveByOtherResponseDTO>> GetPendingExpense(int userId)
         {
-            return await _expenseRepository.GetExpensesThatHaveNotBeenDone(userId);
+            return await _expenseRepository.GetExpensesFromShareUserThatNotDone(userId);
         }
 
+        public async Task<List<ExpenseReponseForOwner>> GetExpenseOfOwner(int userId)
+        {
+            return await _expenseRepository.GetExpenseForOwner(userId);
+        }
     }
 }

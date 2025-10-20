@@ -22,6 +22,10 @@ export default function GroupPage(){
             groupName: groupName
         });
         console.log(res);
+        setShow(false);
+        
+        setGroupName("");         
+        fetchGroup();
     } catch(error){
         setError(error.response.data)
     }
@@ -95,7 +99,7 @@ export default function GroupPage(){
             </Form.Group>
             <div className="d-flex gap-2">
                  <Button variant="secondary" onClick={() => setShow(false)} className="flex-fill">Cancel</Button>
-                 <Button onClick={() => setShow(false)} className="flex-fill" type="submit">Create</Button>
+                 <Button  className="flex-fill" type="submit">Create</Button>
             </div>
           </Form>
           {error === "" ? "" : <p className="text-danger">*{error}</p>}

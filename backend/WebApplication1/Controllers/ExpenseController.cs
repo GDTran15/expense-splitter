@@ -31,12 +31,21 @@ namespace WebApplication1.Controllers
 
         ////add a get one
         //here
-        [HttpGet]
-        public async Task<IActionResult> GetByUser([FromQuery] int userId)
+        [HttpGet("/expense/share-request-user")]
+        public async Task<IActionResult> GetExpenseShareUser([FromQuery] int userId)
         {
             var expenseList = await _expenseService.GetPendingExpense(userId);
             return Ok(expenseList);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetOwnerExpense([FromQuery] int userId)
+        {
+            var expenseList = await _expenseService.GetExpenseOfOwner(userId);
+            return Ok(expenseList);
+        }
+
+
 
         //delete
         [HttpPost("delete")]
